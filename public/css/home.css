@@ -1,0 +1,61 @@
+* {
+    font-family: var(--body-font);
+}
+
+.boton {
+    padding: 10px 20px;
+    border: none;
+    color: #F04f30;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+    color: white;
+    background-color: #F04f30;
+}  
+
+.fondo {
+    background: linear-gradient(#F04f30, #EF7724);
+    color: white;
+    /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); */
+}
+
+
+.title {
+    font-size: 3rem;
+}
+
+.content {
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+
+.review {
+
+    font-weight: lighter;
+}
+
+.prom {
+    font-size: small;
+    font-weight: lighter;
+}
+
+.checked {
+    color: orange;
+}
+
+.checked.lg {
+    color: gray;
+}
+
+.container-fluid {
+    background-color: #f3f4f6;
+}
