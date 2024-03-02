@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,17 @@ Route::get('/', function () {
 
 Route::controller(HomeController::class)->group(function(){
     Route::get('home', 'index');
-    Route::get('login', 'login');
+    Route::get('login', 'login')->name('login');
     Route::get('review', 'review');
 });
 
+Route::controller(DashboardController::class)->group(function(){
+    Route::get('/dashboard', 'index')->name('dashboard');
+    Route::get('/establecimiento', 'indexEs')->name('establecimiento');
+    Route::get('/reviews', 'indexRe')->name('reviews');
+    Route::get('/users', 'indexUsu')->name('user');
+    Route::get('/logout', 'logout')->name('logout');
+});
 
 //Route::get('/login', [HomeController::class, 'index']);
 
