@@ -7,8 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Pasos para no tener problemas 
-## al clonar el proyecto:
+## Pasos para no tener problemas al clonar el proyecto:
 
 1. Crea un archivo llamado .env
 2. Copia el contenido del archivo .env.example al nuevo archivo llamado .env.
