@@ -7,6 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Pasos para no tener problemas 
+## al clonar el proyecto:
+
+1. Crea un archivo llamado .env
+2. Copia el contenido del archivo .env.example al nuevo archivo llamado .env.
+3. Ejecuta composer install para instalar todas las dependencias de PHP del proyecto.
+4. Ejecuta php artisan key:generate para generar una nueva clave de aplicación.
+5. Ejecuta npm install para instalar todas las dependencias de JavaScript del proyecto.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
