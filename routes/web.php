@@ -20,9 +20,10 @@ Route::get('/', function () {
 });
 
 Route::controller(HomeController::class)->group(function(){
-    Route::get('home', 'index');
-    Route::get('login', 'login')->name('login');
-    Route::get('review', 'review');
+    Route::get('/home', 'index');
+    Route::get('/login', 'login')->name('login.index');
+    Route::get('/review', 'review')->name('review.index');
+    Route::get('/register', 'register')->name('register.index');
 });
 
 Route::controller(DashboardController::class)->group(function(){

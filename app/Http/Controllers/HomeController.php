@@ -17,4 +17,8 @@ class HomeController extends Controller
     function  review() {
         return view('review');
     }
+
+    function  register() {
+        return view('register');
+    }
 }

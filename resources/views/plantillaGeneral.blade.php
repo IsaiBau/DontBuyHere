@@ -22,7 +22,7 @@
                 </div>
                 <div class="nav-links">
                     <ul>
-                        <li><a href="#">Inicio</a></li>
+                        <li><a href="/home">Inicio</a></li>
                         <li><a href="#">Restaurantes</a></li>
                         <li><a href="#">Tiendas</a></li>
                         <!-- <li><a href="#" class="iconUser"><i class="icon-user"></i></a><a href="#" class="textUser">Perfil</a></li>
@@ -32,7 +32,7 @@
                             if ($usuario_iniciado) {
                                 echo '<li><a href="#" class="iconUser"><i class="icon-user"></i></a><a href="#" class="textUser">Perfil</a></li>';
                             } else {
-                                echo '<li><a href="#" class="btnLogin"><button class="btnLogin">Login</button></a><a href="#" class="textLogin">Login</a></li>';
+                                echo '<li><a href="/login" class="btnLogin"><button class="btnLogin">Login</button></a><a href="login" class="textLogin">Login</a></li>';
                             }
                         ?>
                     </ul>

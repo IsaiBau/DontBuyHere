@@ -4,8 +4,8 @@
 
 <div class="container-fluid p-5 bg-secondary fondo">
     <h1 class="title"><b>Reseñas destacadas</b></h1>
-    <p class="content">Descubre las últimas y más populares reseñas negativas de nuestra comunidad.</p>
-    <button class="boton">Ver más</button>
+    <p class="montserrat-regular fs-4">Descubre las últimas y más populares reseñas negativas de nuestra comunidad.</p>
+    <button class="boton"><a href="/review" class="links">Añadir reseña</a></button>
 </div>
 
 <div class="container-fluid">
