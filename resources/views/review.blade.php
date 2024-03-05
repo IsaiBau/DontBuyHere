@@ -37,12 +37,13 @@
                                 <label for="calificacion" class="text-black montserrat-medium label-font">Calificacion</label>
                                     <div><img id="calificacion" src="/img/Calificacion.png" alt="calificacion"></div>
                                 <label for="buttonPicture" class="text-black montserrat-medium label-font">Foto</label><br>
-                                    <div class="d-flex position-relative" style="width: 95%">
-                                        <img src="/img/FotoIcon.png" alt="Boton">
-                                        <div class="position-absolute bottom-0 end-0">
-                                            <button type="submit" class="mt-4 form-control bg-black text-white ml-2" style="width: 5rem">Enviar</button>                                                                                 
-                                        </div>
+                                <div class="d-flex position-relative" style="width: 95%">
+                                    <img src="/img/FotoIcon.png" alt="Foto">
+                                    <input class="inputFile" type="file" name="FOTO" placeholder="foto" size="50" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                    <div class="position-absolute bottom-0 end-0">
+                                        <button type="submit" class="mt-4 form-control bg-black text-white ml-2" style="width: 5rem">Enviar</button>                                                                                 
                                     </div>
+                                </div>
                             </div>
                         </form>
                     </div>                    
@@ -86,11 +87,13 @@
                                 <div><img id="calificacion" src="/img/Calificacion.png" alt="calificacion"></div>
                                 <label for="buttonPicture" class="text-black montserrat-medium label-font">Foto</label><br>
                                 <div class="d-flex position-relative" style="width: 95%">
-                                    <img src="/img/FotoIcon.png" alt="Boton">
+                                    <img src="/img/FotoIcon.png" alt="Foto">
+                                    <input class="inputFile" type="file" name="FOTO" placeholder="foto" size="50" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                                     <div class="position-absolute bottom-0 end-0">
                                         <button type="submit" class="mt-4 form-control bg-black text-white ml-2" style="width: 5rem">Enviar</button>                                                                                 
                                     </div>
                                 </div>
+                                
                             </div>
                         </form>
                     </div>                    

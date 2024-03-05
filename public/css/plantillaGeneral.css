@@ -508,6 +508,10 @@ footer > p{
 }
 
 
+.inputFile{
+    opacity: 0;
+}
+
 /* Consulta de medios para dispositivos móviles */
 @media screen and (max-width: 580px) {
     .contenedor-derecho {
@@ -761,4 +765,4 @@ footer > p{
 .links:hover{
     text-decoration: none;
     color: #ffffff;
-}
+}   
