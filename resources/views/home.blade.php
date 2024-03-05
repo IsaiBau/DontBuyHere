@@ -12,18 +12,16 @@
 <div class="container pt-5">
     <h3><b>Peores establecimientos de la semana</b></h3>
 <br>
-
-
     <div class="container">
         <div class="row">
           <div class="col">
             <div class="card mb-3">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="img/taqueria.jpg" width="100%"  class="img-fluid rounded-start" alt="...">
+                    <img src="img/taqueria.jpg" style="min-height: 250px" width="100%"  class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
-                    <div class="card-body">
+                    <div class="card-body" >
                       <h5 class="card-title"><b>Tacos "Los 3 Angelitos"</b></h5>
                       <p class="card-text">Fonda del Mercado de la Sierra. Horario de 8:00 a 19:00, Lunes a Viernes.</p>
                       <div>
@@ -42,7 +40,7 @@
             <div class="card mb-3">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="img/restaurante.jpg" class="img-fluid rounded-start" alt="...">
+                    <img src="img/restaurante.jpg" style="min-height: 250px" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
@@ -64,7 +62,7 @@
             <div class="card mb-3">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="img/pizzeria.jpg" class="img-fluid rounded-start" alt="...">
+                    <img src="img/pizzeria.jpg" style="min-height: 250px" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
@@ -97,10 +95,10 @@
 <br>
 
   <div class="container">
-    <div class="row">
+    <div class="row" style="min-height: 300px;">
       <div class="col">
         <div class="card mb-3">
-            <div class="row g-0">
+            <div class="row g-0" style="min-height: 300px"> 
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title"><b>Little Caesar's</b></h5> <br>
@@ -164,5 +162,4 @@
       </div>
   </div>
 </div>
-
 @endsection
