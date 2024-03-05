@@ -22,9 +22,9 @@
             </div>
             <div class="nav-links">
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Restaurantes</a></li>
-                    <li><a href="#">Tiendas</a></li>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/restaurant">Restaurantes</a></li>
+                    <li><a href="/shop">Tiendas</a></li>
                     <!-- <li><a href="#" class="iconUser"><i class="icon-user"></i></a><a href="#" class="textUser">Perfil</a></li>
                     <li><a href="#" class="btnLogin"><button class="btnLogin">Login</button></a><a href="#" class="textLogin">Login</a></li> -->
                     <?php
@@ -52,9 +52,9 @@
         <footer>
             <section class="socials">
                 <ul>
-                    <li><a href="#"><i class="icon-facebook"></i>Facebook</a></li>
-                    <li><a href="#"><i class="icon-twitter"></i>Twitter</a></li>
-                    <li><a href="#"><i class="icon-instagram"></i>Instragram</a></li>
+                    <li><a href="#"  class="links"><i class="icon-facebook"></i>Facebook</a></li>
+                    <li><a href="#"  class="links"><i class="icon-twitter"></i>Twitter</a></li>
+                    <li><a href="#"  class="links"><i class="icon-instagram"></i>Instragram</a></li>
                 </ul>
             </section><br>
             <p class="legal">©2024 NoCompresAqui. Todos los derechos reservados</p>

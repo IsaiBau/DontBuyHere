@@ -16,6 +16,7 @@
         <div class="row">
           <div class="col">
             <div class="card mb-3">
+              <a href="/vistaReview" class="links-view">
                 <div class="row g-0">
                   <div class="col-md-4">
                     <img src="img/taqueria.jpg" style="min-height: 250px" width="100%"  class="img-fluid rounded-start" alt="...">
@@ -34,10 +35,12 @@
                     </div>
                   </div>
                 </div>
+              </a>
               </div>
           </div>
           <div class="col">
             <div class="card mb-3">
+              <a href="/vistaReview" class="links-view">
                 <div class="row g-0">
                   <div class="col-md-4">
                     <img src="img/restaurante.jpg" style="min-height: 250px" class="img-fluid rounded-start" alt="...">
@@ -56,10 +59,12 @@
                     </div>
                   </div>
                 </div>
+              </a>
               </div>
           </div>
           <div class="col">
             <div class="card mb-3">
+              <a href="/vistaReview" class="links-view">
                 <div class="row g-0">
                   <div class="col-md-4">
                     <img src="img/pizzeria.jpg" style="min-height: 250px" class="img-fluid rounded-start" alt="...">
@@ -78,6 +83,7 @@
                     </div>
                   </div>
                 </div>
+              </a>
               </div>
           </div>
         </div>
@@ -98,9 +104,10 @@
     <div class="row" style="min-height: 300px;">
       <div class="col">
         <div class="card mb-3">
+          <a href="/vistaReview" class="links-view">
             <div class="row g-0" style="min-height: 300px"> 
               <div class="col-md-8">
-                <div class="card-body">
+                <div class="card-body" >
                   <h5 class="card-title"><b>Little Caesar's</b></h5> <br>
                   <div class="d-inline">
                     <span class="fa fa-star checked"></span>
@@ -114,7 +121,7 @@
                 <br>
                     <i class="fa-regular fa-user fa-lg"></i> 
                     <p class="d-inline">Isaí Bautista • Hace 3 días</p>
-                  <p class="card-text review">Ordené una hamburguesa y me trajeron una Pizza. Pesimo Servicio, no volveré a comer aquí no lo recomiendo.</p>
+                  <p class="card-text review">Ordené una hamburguesa y me trajeron una Pizza. Pesimo Servicio, no volveré a comer aquí no lo recomiendo. Además, la hamburguesa no estaba tan buena.</p>
                   <br>
                   <div>
                     <span class="fa fa-star fa-lg"></span>
@@ -126,10 +133,12 @@
                 </div>
               </div>
             </div>
+          </a>
           </div>
       </div>
       <div class="col">
         <div class="card mb-3">
+          <a href="/vistaReview" class="links-view">
             <div class="row g-0">
               <div class="col-md-8">
                 <div class="card-body">
@@ -158,6 +167,7 @@
                 </div>
               </div>
             </div>
+          </a>
           </div>
       </div>
   </div>

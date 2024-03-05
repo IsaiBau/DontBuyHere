@@ -74,7 +74,23 @@ body {
 a {
     text-decoration: none;
 }
+.links{
+    text-decoration: none;
+    color: #ed6f56;
+}
 
+.links:hover{
+    text-decoration: none;
+    color: #ffffff;
+}
+.links-view{
+    text-decoration: none;
+    color: black;
+}
+.links-view:hover{
+    text-decoration: none;
+    color: #ed6f56;
+}
 header {
     margin: 0 auto;
     padding: var(--padding);
