@@ -559,8 +559,6 @@ footer > p{
     .logo-crear{
         width: 50%; 
         height: 25%;
-        margin-top: 5%;
-        margin-left: 25%
 
     }
     .button_iniciarsesioncrear {
@@ -570,29 +568,23 @@ footer > p{
         border-radius: 10px; 
         cursor: pointer; 
         padding: 5px;
-        margin-left: 10%;
     }
 
 
 .mensajecrear{
+    display: flex;
+    text-align: center;
     font-size: 17px; 
     color: white;  
-    margin-top: 30px;
-    margin-left: 10%;
-    margin-bottom: 25px;
 }
 
 .titulocrear1 {
     font-size: 30px; 
     color: white;  
-    margin-top: 20px;
-    margin-left: 20%;
 }
 .titulocrear2 {
     font-size: 30px; 
     color: white; 
-    margin-left: 20%; 
-    margin-top: -5px;
 }
 
 .contenedor-campos1{
@@ -636,6 +628,10 @@ footer > p{
     }
 
     .contenedor-izquierdocrear {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 23%;
         height: 450px;
         border-top-left-radius: 7%;
@@ -781,6 +777,16 @@ footer > p{
 .links{
     text-decoration: none;
     color: #ed6f56;
+}
+
+.linksSecondary{
+    text-decoration: none;
+    color: #ed6f56;
+}
+
+.linksSecondary:hover{
+    text-decoration: none;
+    color: #6e1a09;
 }
 
 .links:hover{

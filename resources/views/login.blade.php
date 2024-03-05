@@ -13,7 +13,7 @@
             <input type="password" id="contraseña" name="contraseña" placeholder="CONTRASEÑA"><br><br>
             <button class="button" type="submit">INICIAR SESION</button>
         </form>
-        <p class="referencia">¿No tienes cuenta? <a class="aaa" href="Crear"><a href="register">Crea una aquí</a></a></p>
+        <p class="referencia">¿No tienes cuenta? <a class="aaa" href="Crear"><a href="register" class="linksSecondary">Crea una aquí</a></a></p>
     </div>    
     <div class="contenedor-derecho">
         <img src="/img/imagen.jpg" alt="Imagen" class="imagen-principal">

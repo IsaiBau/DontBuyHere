@@ -30,9 +30,9 @@
                     <?php
                         $usuario_iniciado = false; 
                         if ($usuario_iniciado) {
-                            echo '<li><a href="#" class="iconUser"><i class="icon-user"></i></a><a href="#" class="textUser">Perfil</a></li>';
+                            echo '<li><a href="login" class="iconUser"><i class="icon-user"></i></a><a href="#" class="textUser">Perfil</a></li>';
                         } else {
-                            echo '<li><a href="#" class="btnLogin"><button class="btnLogin">Login</button></a><a href="#" class="textLogin">Login</a></li>';
+                            echo '<li><a href="login" class="btnLogin"><button class="btnLogin">Login</button></a><a href="#" class="textLogin">Login</a></li>';
                         }
                     ?>
                 </ul>

@@ -7,7 +7,7 @@
         <p class="titulocrear1">Bienvenido a</p>
         <p class="titulocrear2">!Don't buy here¡</p>
         <p class="mensajecrear">Asegurate de introducir tus datos de forma correcta</p>
-        <button class="button_iniciarsesioncrear" type="submit"><a href="login">Iniciar sesion</a></button>
+        <button class="button_iniciarsesioncrear" type="submit"><a href="login" class="linksSecondary">Iniciar sesion</a></button>
     </div>    
     <div class="contenedor-derechocrear">
         
