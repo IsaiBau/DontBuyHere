@@ -24,6 +24,8 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('/login', 'login')->name('login.index');
     Route::get('/review', 'review')->name('review.index');
     Route::get('/register', 'register')->name('register.index');
+    Route::get('/restaurant', 'restaurant')->name('restaurant');
+    Route::get('/shop', 'shops')->name('shop');
 });
 
 Route::controller(DashboardController::class)->group(function(){
