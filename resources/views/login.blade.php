@@ -7,7 +7,7 @@
             <img src="/img/LogoDn.png" alt="Imagen" class="logo-principal">
         </a>            
         <p class="titulo">Bienvenido a</p>
-        <p class="mensaje">!Don't buy here¡</p>
+        <p class="mensaje">¡Don't buy here!</p>
         <form class="formulario">
             <input type="text" id="usuario" name="usuario" placeholder="USUARIO"><br><br>
             <input type="password" id="contraseña" name="contraseña" placeholder="CONTRASEÑA"><br><br>

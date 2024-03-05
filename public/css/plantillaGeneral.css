@@ -71,6 +71,26 @@ body {
     background-color: #F3F4F6;
 }
 
+a {
+    text-decoration: none;
+}
+.links{
+    text-decoration: none;
+    color: #ed6f56;
+}
+
+.links:hover{
+    text-decoration: none;
+    color: #ffffff;
+}
+.links-view{
+    text-decoration: none;
+    color: black;
+}
+.links-view:hover{
+    text-decoration: none;
+    color: #ed6f56;
+}
 header {
     margin: 0 auto;
     padding: var(--padding);
@@ -106,7 +126,7 @@ ol li:before {
     display: none;
 }
 
-.navbar {
+.navbar1 {
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
@@ -116,7 +136,7 @@ ol li:before {
     min-height: 40px;
 }
 
-.navbar li a {
+.navbar1 li a {
     color: var(--menu-link-color);
     display: flex;
     text-decoration: none;
@@ -129,19 +149,19 @@ ol li:before {
     background: none;
 }
 
-.navbar li .textUser {
+.navbar1 li .textUser {
     display: none;
 }
 
-.navbar li .iconUser {
+.navbar1 li .iconUser {
     font-size: 30px;
 }
 
-.navbar li .textLogin {
+.navbar1 li .textLogin {
     display: none;
 }
 
-.navbar li .btnLogin {
+.navbar1 li .btnLogin {
     padding: 5px 16px;
     border-radius: 6px;
     background-color: var(--color-white);
@@ -151,12 +171,12 @@ ol li:before {
     font-weight: bold;
 }
 
-.navbar li .btnLogin:hover {
+.navbar1 li .btnLogin:hover {
     background-color: #c7bdbd;
     color: var(--color-white);
 }
 
-.navbar ul li {
+.navbar1 ul li {
     font-weight: bold;
     list-style-type: none;
     display: flex;
@@ -164,7 +184,7 @@ ol li:before {
     justify-content: center;
 }
 
-.navbar .nav-links ul {
+.navbar1 .nav-links ul {
     display: flex;
 }
 
@@ -286,11 +306,11 @@ footer > p{
 }
 
 @media screen and (max-width: 920px) {
-    .navbar {
+    .navbar1 {
         padding-top: 0px;
     }
 
-    .navbar li a {
+    .navbar1 li a {
         color: var(--color-black);
     }
 
@@ -304,7 +324,7 @@ footer > p{
         padding-top: 0;
     }    
 
-    .navbar ul {
+    .navbar1 ul {
         margin: 0 auto;
         padding: 0;
     }   
@@ -341,24 +361,24 @@ footer > p{
         display: block;
     }
 
-    .navbar ul li {
+    .navbar1 ul li {
         align-items: left;
         justify-content: left;
     }
 
-    .navbar li .textUser {
+    .navbar1 li .textUser {
         display: flex;
     }
     
-    .navbar li .iconUser {
+    .navbar1 li .iconUser {
         display: none;
     }
 
-    .navbar li .textLogin {
+    .navbar1 li .textLogin {
         display: flex;
     }
     
-    .navbar li .btnLogin {
+    .navbar1 li .btnLogin {
         display: none;
     }
 }
@@ -384,6 +404,7 @@ footer > p{
         padding-right: 10px;
     }
 }
+
 
 /*css del login*/
 
