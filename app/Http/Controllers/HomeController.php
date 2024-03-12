@@ -17,4 +17,14 @@ class HomeController extends Controller
     function  review() {
         return view('review');
     }
+
+    function  register() {
+        return view('register');
+    }
+    function  restaurant() {
+        return view('restaurant');
+    }
+    function  shops() {
+        return view('shops');
+    }
 }

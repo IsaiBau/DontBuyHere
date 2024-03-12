@@ -24,6 +24,6 @@ class DashboardController extends Controller
     }
 
     function logout(){
-        return redirect()->route('login');
+        return redirect()->route('login.index');
     }
 }

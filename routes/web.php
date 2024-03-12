@@ -3,7 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\VistaRController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,9 +20,14 @@ Route::get('/', function () {
 });
 
 Route::controller(HomeController::class)->group(function(){
-    Route::get('home', 'index');
-    Route::get('login', 'login')->name('login');
-    Route::get('review', 'review');
+    Route::get('/home', 'index');
+    Route::get('/login', 'login')->name('login.index');
+    Route::get('/review', 'review')->name('review.index');
+    Route::get('/register', 'register')->name('register.index');
+    Route::get('/restaurant', 'restaurant')->name('restaurant');
+    Route::get('/shop', 'shops')->name('shop');
+    Route::get('/restaurant', 'restaurant')->name('restaurant');
+    Route::get('/shop', 'shops')->name('shop');
 });
 
 Route::controller(DashboardController::class)->group(function(){
@@ -33,5 +38,6 @@ Route::controller(DashboardController::class)->group(function(){
     Route::get('/logout', 'logout')->name('logout');
 });
 
+Route::get('vistaReview', [VistaRController::class, 'vista'])->name('vistaReview');
 //Route::get('/login', [HomeController::class, 'index']);
 
