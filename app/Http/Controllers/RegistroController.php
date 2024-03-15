@@ -29,10 +29,7 @@ class RegistroController extends Controller
         $reg->name = $request->name;
         $reg->user = $request->user;
         $reg->email = $request->email;
-        $reg->password = $request->password;
- 
-        //return $cat;
-
+        $reg->password = bcrypt($request->password);
         $reg->save();
 
         return redirect()->route('login.index', $reg);

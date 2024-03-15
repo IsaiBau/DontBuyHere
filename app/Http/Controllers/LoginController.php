@@ -15,7 +15,7 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function login(Request $request){
+    public function login(logUserRequest $request){
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -33,6 +33,6 @@ class LoginController extends Controller
 
     public function log(logUserRequest $request){{
         $data = $request->session()->all();
-        return $data;
+        return redirect()->route('home', $data);
     }}
 }
