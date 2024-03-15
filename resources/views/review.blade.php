@@ -24,8 +24,8 @@
                                 <label for="localType" class="text-black montserrat-medium label-font">Tipo de local</label>
                                 <select name="localType" class="form-select mb-3 border-dark border-1 form">
                                     <option selected>Tienda, Restaurante, Fonda...</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
+                                    <option value="1">Tienda</option>
+                                    <option value="2">Restaurante</option>
                                     <option value="3">Three</option>
                                 </select>
                                 <label for="review" class="text-black montserrat-medium label-font">Reseña</label>
@@ -67,9 +67,13 @@
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="d-flex justify-content-center align-items-center mt-4" style="width: 60rem">
                         <form action="#" class="row" style="width: 100%">
+                            @csrf
                             <div class="col">
                                 <label for="localNameAdd" class="text-black montserrat-medium label-font">Nombre del establecimiento</label>
                                     <input type="text" name="localNameAdd" placeholder="Escriba aquí el nombre del local..." class="border-dark border-1 form-control mb-3 form">
+                                    @error('localNameAdd')
+                                    {{$message}}
+                                    @enderror
                                 <label for="localTypeAdd" class="text-black montserrat-medium label-font">Tipo de local</label>
                                     <select name="localTypeAdd" class="form-select mb-3 border-dark border-1 form">
                                         <option selected>Tienda, Restaurante, Fonda...</option>
@@ -77,14 +81,26 @@
                                         <option value="2">Two</option>
                                         <option value="3">Three</option>
                                     </select>
+                                    @error('localTypeAdd')
+                                        {{$message}}
+                                    @enderror
                                 <label for="reviewAdd" class="text-black montserrat-medium label-font">Reseña</label>
                                 <textarea name="reviewAdd" class="form-control border-dark border-1 mb-3" style="max-width: 27rem; height: 9rem;" placeholder="Escriba aqui su experiencia..." id="floatingTextarea"></textarea>
+                                @error('reviewAdd')
+                                        {{$message}}
+                                @enderror
                             </div>
                             <div class="col">
                                 <label for="addres" class="text-black montserrat-medium label-font">Dirección</label><br>
-                                <input type="text" name="addres" placeholder="Calle, Código Postal, Villahermosa, Tab." class="border-dark border-1 form-control mb-3 form">
+                                <input type="text" name="address" placeholder="Calle, Código Postal, Villahermosa, Tab." class="border-dark border-1 form-control mb-3 form">
+                                @error('address')
+                                        {{$message}}
+                                @enderror
                                 <label for="calificacion" class="text-black montserrat-medium label-font">Calificacion</label>
                                 <div><img id="calificacion" src="/img/Calificacion.png" alt="calificacion"></div>
+                                @error('calificacion')
+                                        {{$message}}
+                                @enderror
                                 <label for="buttonPicture" class="text-black montserrat-medium label-font">Foto</label><br>
                                 <div class="d-flex position-relative" style="width: 95%">
                                     <img src="/img/FotoIcon.png" alt="Foto">
