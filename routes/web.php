@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\VistaRController;
+use App\Http\Controllers\RegistroController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,8 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('/restaurant', 'restaurant')->name('restaurant');
     Route::get('/shop', 'shops')->name('shop');
 });
+
+Route::post('/register', [RegistroController::class, 'store'])->name('registro');
 
 Route::controller(DashboardController::class)->group(function(){
     Route::get('/dashboard', 'index')->name('dashboard');

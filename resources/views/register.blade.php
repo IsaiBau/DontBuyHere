@@ -11,15 +11,30 @@
     </div>    
     <div class="contenedor-derechocrear">
         
-        <form class="formulariocrear">
+        <form class="formulariocrear" action="{{route('registro')}}" method="POST">
+            @csrf
             <img src="/img/LogoDn.png" alt="Imagen" class="logo-crear1">
             <p class="titulocrear"> Crear Cuenta</p>
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre" class="for"><br><br>
-            <input type="text" id="apellido_paterno" name="apellido_paterno" placeholder="Apellido Paterno" class="contenedor-campos1">
-            <input type="text" id="apellido_materno" name="apellido_materno" placeholder="Apellido Materno" class="contenedor-campos2">              
-            <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" class="for"><br><br>
-            <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" class="contenedor-campos1">
-            <input type="password" id="confirmar_contraseña" name="confirmar_contraseña" placeholder="Confirmar Contraseña" class="contenedor-campos2"><br><br>
+            <input type="text" id="nombre" name="name" placeholder="Nombre" class="for" value="{{old('name')}}"><br><br>
+            @error('name')
+                {{$message}}
+            @enderror
+            <input type="text" id="usuario" name="user" placeholder="Usuario" class="for" value="{{old('user')}}"><br><br>  
+            @error('user')
+                {{$message}}
+            @enderror            
+            <input type="email" id="correo" name="email" placeholder="Correo Electrónico" class="for" value="{{old('email')}}"><br><br>
+            @error('email')
+                {{$message}}
+            @enderror
+            <input type="password" id="password" name="password" placeholder="Contraseña" class="contenedor-campos1" value="{{old('password')}}">
+            @error('password')
+                {{$message}}
+            @enderror
+            <input type="password" id="password" name="password_confirmation" placeholder="Confirmar Contraseña" class="contenedor-campos2"><br><br>
+            @error('password_confirmation')
+                {{$message}}
+            @enderror
             <button class="button1" type="submit">Crear Cuenta</button>
         </form>
         
