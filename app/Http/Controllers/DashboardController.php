@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -20,7 +21,8 @@ class DashboardController extends Controller
     }
     function  indexUsu() {
         $activeLink = 'users';
-        return view('users', compact('activeLink'));
+        $usuarios = User::All();
+        return view('users', compact('activeLink'), ['usu'=> $usuarios]);
     }
 
     function logout(){

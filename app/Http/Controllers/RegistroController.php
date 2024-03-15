@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\addUserRequests;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class RegistroController extends Controller
 {
@@ -14,25 +14,18 @@ class RegistroController extends Controller
     }
 
 
-    public function store(Request $request) {
+    public function store(addUserRequests $request) {
         //return $request->all();
-
-        $request->validate([
-            'name' => 'required',
-            'user' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed|min:2'
-        ]);
-
+ 
         $reg = new User();
 
         $reg->name = $request->name;
         $reg->user = $request->user;
         $reg->email = $request->email;
-        $reg->password = bcrypt($request->password);
+        $reg->password = $request->password;
         $reg->save();
 
-        return redirect()->route('login.index', $reg);
+        return redirect()->route('login.index');
 
     }
 }
