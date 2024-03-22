@@ -29,5 +29,14 @@ class logUserRequest extends FormRequest
             'password' => 'required|min:3'
         ];
     }
+    public function messages():array
+    {
+        return [
+            'email.required'=>'El correo electrónico de usuario es obligatorio.',
+            'password.required'=>'La contraseña de usuario es obligatoria.',
+            'password_confirmation.required'=>'La confirmación de contraseña de usuario es obligatoria.',
+            //'email.required'=>'El correo electrónico es obligatorio'
+        ];
+    }
 
 }

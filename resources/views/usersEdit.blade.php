@@ -28,14 +28,16 @@
             @error('email')
                 {{$message}}
             @enderror
-            <input type="password" id="password" name="password" placeholder="Contraseña" class="contenedor-campos1" value="{{$usuario->password}}">
-            @error('password')
+            <input type="password" id="password" name="password" placeholder="Contraseña" class="for" value="{{old('password')}}">
+            <div class="errores"> @error ('password')
                 {{$message}}
-            @enderror
-            <input type="password" id="password" name="password_confirmation" placeholder="Confirmar Contraseña" class="contenedor-campos2"><br><br>
-            @error('password_confirmation')
+              @enderror
+            </div>
+            <input type="password" id="password" name="password_confirmation" placeholder="Confirmar Contraseña" class="for">
+            <div class="errores"> @error ('password_confirmation')
                 {{$message}}
-            @enderror
+              @enderror
+            </div>
             <button class="button1" type="submit">Modificar usuario</button>
         </form>
         
