@@ -12,13 +12,15 @@
         <form class="formulario" action="{{route('login.log')}}" method="POST">
             @csrf
             <input type="text" id="email" name="email" placeholder="CORREO"><br>
-            @error('email')
+            <div class="errores"> @error ('email')
                 {{$message}}
-            @enderror
+              @enderror
+            </div>
             <input type="password" id="password" name="password" placeholder="CONTRASEÑA"><br>
-            @error('password')
+            <div class="errores"> @error ('password')
                 {{$message}}
-            @enderror
+              @enderror
+            </div>
             <button class="button" type="submit">INICIAR SESION</button>
         </form>
         <p class="referencia">¿No tienes cuenta? <a class="aaa" href="Crear"><a href="register" class="linksSecondary">Crea una aquí</a></a></p>

@@ -18,7 +18,6 @@ class RegistroController extends Controller
         //return $request->all();
  
         $reg = new User();
-
         $reg->name = $request->name;
         $reg->user = $request->user;
         $reg->email = $request->email;
