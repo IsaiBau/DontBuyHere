@@ -38,7 +38,7 @@ Route::post('/login', [LoginController::class, 'index'])->name('login.index');
 Route::post('/login', [LoginController::class, 'log'])->name('login.log');
 
 Route::controller(DashboardController::class)->group(function(){
-    Route::get('/dashboard', 'index')->name('dashboard');
+    Route::get('/dashboard', 'index')->middleware('auth.admin')->name('dashboard');
     Route::get('/establecimiento', 'indexEs')->name('establecimiento');
     Route::get('/reviews', 'indexRe')->name('reviews');
     Route::get('/users', 'indexUsu')->name('user');
@@ -52,7 +52,5 @@ Route::controller(DashboardController::class)->group(function(){
 Route::get('vistaReview', [VistaRController::class, 'vista'])->name('vistaReview');
 //Route::get('/login', [HomeController::class, 'index']);
 
-Route::get('/dashboardAdmin',[DashboardController::class, 'index2'])
-    ->middleware('auth.admin')
-->name('admin.index');
+//Route::get('/dashboard', 'index')->name('dashboard1') ->middleware('auth.admin')->name('admin.index');
 

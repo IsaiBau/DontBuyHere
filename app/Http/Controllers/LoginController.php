@@ -26,10 +26,10 @@ class LoginController extends Controller
             $usuario = Auth::user();
             session(['email' => $usuario->email]);
             
-            if ($usuario->rol == 'admin') {
+            if ( session(['rol' => $usuario->rol]) == 'admin') {
                 return redirect()->route('dashboard');
             } else {
-                return redirect()->route('dashboard');
+                return redirect()->route('home');
             }
         }
     
@@ -40,7 +40,25 @@ class LoginController extends Controller
     
 
     public function log(logUserRequest $request){{
+        $user = User::where('email','=',$request->email)->where('password', '=',$request->password)->first();
+        if($request->email == $user['email'] && $request->password == $user['password'])
+        {
+            session(['rol' => $user['rol']]);
+            $data = $request->session()->all();
+            if(session(['rol' => $user['rol']]) == "admin@gmail.com"){
+                return redirect()->route('dashboard');
+            } else {
+                return redirect()->route('dashboard');
+            }
+        } else {
+            return redirect()->route('login');
+        }
+    }
+        /*$request->session()->regenerate();
         $data = $request->session()->all();
-        return redirect()->route('home', $data);
-    }}
+        $usuarios = User::All();
+        session(['email' => $usuarios['email']]);*/
+        //return redirect()->route('home', $data);
+        
+    }
 }
