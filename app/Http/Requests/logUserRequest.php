@@ -26,19 +26,7 @@ class logUserRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-<<<<<<< HEAD
-            'password' => 'required|min:4'
-=======
             'password' => 'required|min:3'
->>>>>>> aa2e83adafc80d09459c64ece9febf1add954acf
-        ];
-    }
-
-    public function messages():array
-    {
-        return [
-            'email.required'=>'El correo electrónico de usuario es obligatorio.',
-            'password.required'=>'La contraseña de usuario es obligatoria.',
         ];
     }
 
