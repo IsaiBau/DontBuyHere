@@ -28,7 +28,6 @@ class addUserRequests extends FormRequest
             'user' => 'required|min:3',
             'email' => 'required',
             'password' => 'required|confirmed|min:2',
-            'password_confirmation' => 'required|confirmed|min:2',
         ];
     }
 

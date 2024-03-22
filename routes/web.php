@@ -35,7 +35,7 @@ Route::controller(HomeController::class)->group(function(){
 
 Route::post('/register', [RegistroController::class, 'store'])->name('registro');
 Route::post('/login', [LoginController::class, 'index'])->name('login.index');
-Route::post('/login', [LoginController::class, 'log'])->name('login.log');
+Route::post('/login', [LoginController::class, 'login'])->name('login.log');
 
 Route::controller(DashboardController::class)->group(function(){
     Route::get('/dashboard', 'index')->middleware('auth.admin')->name('dashboard');
