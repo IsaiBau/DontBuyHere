@@ -33,6 +33,6 @@ class LoginController extends Controller
 
     public function log(logUserRequest $request){{
         $data = $request->session()->all();
-        return $data;
+        return redirect()->route('home', $data);
     }}
 }
