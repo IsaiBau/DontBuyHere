@@ -19,10 +19,15 @@
     <li>
         <i class='bx user bxs-group' ></i>
         <span class="text">
-            <h3>2834</h3>
+            <h3>{{$totalusuarios = App\Models\User::count();}}</h3>
             <p>Usuarios</p>
         </span>
     </li>
+    @if (session('success-update'))
+        <div class="alert alert-primary text-center">{{session('success-update')}}</div>
+    @elseif (session('success-delete'))
+        <div class="alert alert-warning text-center">{{session('success-delete')}}</div>
+    @endif
     
 </ul>
 
@@ -44,13 +49,17 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($usu as $u)
+                @foreach ($usu as $usuario)
                     <tr>
-                        <td><p>{{$u['name']}}</p></td>
-                        <td id="LN">{{$u['user']}}</td>
-                        <td>{{$u['email']}}</td>
-                        <td id="UD"><i class='bx bxs-edit-alt'></i></td>
-                        <td id="UD"><i class='bx bxs-eraser'></td>
+                        <td><p>{{$usuario['name']}}</p></td>
+                        <td id="LN">{{$usuario['user']}}</td>
+                        <td>{{$usuario['email']}}</td>
+                        <td id="UD"><a href="{{route('editar.index', $usuario)}}"><i class='bx bxs-edit-alt'></i></a></td>
+                        <td id="UD"><form action="{{route('user.destroy', $usuario)}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">
+                            @csrf
+                            @method('DELETE')
+                             <button type="submit" style="border: none; background-color: transparent; cursor: pointer;"><i class='bx bxs-eraser'></i></button>
+                        </form></td>
                     </tr>
                 @endforeach
                 

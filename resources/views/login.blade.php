@@ -1,6 +1,7 @@
 @extends('plantillaGeneral')
 
 @section('contenido')
+
 <div class="contenedor">
     <div class="contenedor-izquierdo">
         <a href="">
@@ -10,11 +11,11 @@
         <p class="mensaje">¡Don't buy here!</p>
         <form class="formulario" action="{{route('login.log')}}" method="POST">
             @csrf
-            <input type="text" id="email" name="email" placeholder="CORREO"><br><br>
+            <input type="text" id="email" name="email" placeholder="CORREO"><br>
             @error('email')
                 {{$message}}
             @enderror
-            <input type="password" id="password" name="password" placeholder="CONTRASEÑA"><br><br>
+            <input type="password" id="password" name="password" placeholder="CONTRASEÑA"><br>
             @error('password')
                 {{$message}}
             @enderror

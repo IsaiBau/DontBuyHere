@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
@@ -22,7 +23,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::controller(HomeController::class)->group(function(){
-    Route::get('/home', 'index');
+    Route::get('/home', 'index')->name('home');
     Route::get('/login', 'login')->name('login.index');
     Route::get('/review', 'review')->name('review.index');
     Route::get('/register', 'register')->name('register.index');
@@ -42,8 +43,16 @@ Route::controller(DashboardController::class)->group(function(){
     Route::get('/reviews', 'indexRe')->name('reviews');
     Route::get('/users', 'indexUsu')->name('user');
     Route::get('/logout', 'logout')->name('logout');
+    //CRUD
+    Route::get('/userData/{usuario}', 'edit')->name('editar.index');
+    Route::put('/userData/{usuario}', 'update')->name('update');
+    Route::delete('/delete/{usuario}', 'destroy')->name('user.destroy');
 });
 
 Route::get('vistaReview', [VistaRController::class, 'vista'])->name('vistaReview');
 //Route::get('/login', [HomeController::class, 'index']);
+
+Route::get('/dashboardAdmin',[DashboardController::class, 'index2'])
+    ->middleware('auth.admin')
+->name('admin.index');
 
