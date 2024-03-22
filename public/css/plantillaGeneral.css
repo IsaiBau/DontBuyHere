@@ -738,3 +738,9 @@ footer > p{
     text-decoration: none;
     color: #ffffff;
 }
+
+.errores{
+    color: black;
+    font-size: small;
+    text-align: center;
+}

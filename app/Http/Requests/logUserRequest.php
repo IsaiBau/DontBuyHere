@@ -30,4 +30,12 @@ class logUserRequest extends FormRequest
         ];
     }
 
+    public function messages():array
+    {
+        return [
+            'email.required'=>'El correo electrónico de usuario es obligatorio.',
+            'password.required'=>'La contraseña de usuario es obligatoria.',
+        ];
+    }
+
 }
