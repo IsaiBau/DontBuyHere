@@ -20,8 +20,6 @@ class AdminAuth
             return $next($request);   
         }
         
-        return redirect()->route('dashboard');
+        return redirect()->route('admin.index');
     }
-
- 
 }
