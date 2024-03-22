@@ -24,12 +24,11 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             $usuario = Auth::user();
-            session(['email' => $usuario->email]);
-            
+    
             if ($usuario->rol == 'admin') {
                 return redirect()->route('dashboard');
             } else {
-                return redirect()->route('dashboard');
+                return redirect()->route('home');
             }
         }
     
@@ -37,10 +36,4 @@ class LoginController extends Controller
             'email' => 'El usuario o contraseña es incorrecto.',
         ])->onlyInput('email');
     }
-    
-
-    public function log(logUserRequest $request){{
-        $data = $request->session()->all();
-        return redirect()->route('home', $data);
-    }}
 }
