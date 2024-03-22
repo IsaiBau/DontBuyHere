@@ -30,4 +30,16 @@ class addUserRequests extends FormRequest
             'password' => 'required|confirmed|min:2',
         ];
     }
+
+    public function messages():array
+    {
+        return [
+            'name.required'=>'El nombre es obligatorio.',
+            'user.required'=>'El nombre de usuario es obligatorio.',
+            'email.required'=>'El correo electrónico de usuario es obligatorio.',
+            'password.required'=>'La contraseña de usuario es obligatoria.',
+            'password_confirmation.required'=>'La confirmación de contraseña de usuario es obligatoria.',
+            //'email.required'=>'El correo electrónico es obligatorio'
+        ];
+    }
 }

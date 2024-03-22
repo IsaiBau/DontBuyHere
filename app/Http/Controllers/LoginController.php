@@ -36,4 +36,28 @@ class LoginController extends Controller
             'email' => 'El usuario o contraseña es incorrecto.',
         ])->onlyInput('email');
     }
+    
+
+    public function log(logUserRequest $request){{
+        $user = User::where('email','=',$request->email)->where('password', '=',$request->password)->first();
+        if($request->email == $user['email'] && $request->password == $user['password'])
+        {
+            session(['rol' => $user['rol']]);
+            $data = $request->session()->all();
+            if(session(['rol' => $user['rol']]) == "admin@gmail.com"){
+                return redirect()->route('dashboard');
+            } else {
+                return redirect()->route('dashboard');
+            }
+        } else {
+            return redirect()->route('login');
+        }
+    }
+        /*$request->session()->regenerate();
+        $data = $request->session()->all();
+        $usuarios = User::All();
+        session(['email' => $usuarios['email']]);*/
+        //return redirect()->route('home', $data);
+        
+    }
 }

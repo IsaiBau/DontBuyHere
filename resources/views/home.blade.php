@@ -8,8 +8,6 @@
     <button class="boton"><a href="/review" class="links">Añadir reseña</a></button>
 </div>
 
-
-  
 <div class="container-fluid">
 <div class="container pt-5">
     <h3><b>Peores establecimientos de la semana</b></h3>

@@ -52,7 +52,5 @@ Route::controller(DashboardController::class)->group(function(){
 Route::get('vistaReview', [VistaRController::class, 'vista'])->name('vistaReview');
 //Route::get('/login', [HomeController::class, 'index']);
 
-Route::get('/dashboardAdmin',[DashboardController::class, 'index2'])
-    ->middleware('auth.admin')
-->name('admin.index');
+//Route::get('/dashboard', 'index')->name('dashboard1') ->middleware('auth.admin')->name('admin.index');
 
