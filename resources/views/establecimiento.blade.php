@@ -23,6 +23,11 @@
             <p>Establecimientos</p>
         </span>
     </li>
+    @if (session('success-update'))
+    <div class="alert alert-primary text-center">{{session('success-update')}}</div>
+@elseif (session('success-delete'))
+    <div class="alert alert-warning text-center">{{session('success-delete')}}</div>
+@endif
 </ul>
 <div class="table-data">
     <div class="order">
@@ -50,7 +55,11 @@
                         <td id="ubi">{{$establecimiento['direccion']}}</td>
                         <td id="ubi">{{$establecimiento->tipoEstablecimiento->name}}</td>
                         <td id="UD"><a href="{{route('editarEs.index', $establecimiento)}}"><i class='bx bxs-edit-alt'></i></a></td>
-                        <td id="UD"><i class='bx bxs-eraser'></td>
+                        <td id="UD"><form action="{{route('es.destroy', $establecimiento)}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este establecimiento?')">
+                            @csrf
+                            @method('DELETE')
+                             <button type="submit" style="border: none; background-color: transparent; cursor: pointer;"><i class='bx bxs-eraser'></i></button>
+                        </form></td>
                     </tr>
                  @endforeach
                 <tr>

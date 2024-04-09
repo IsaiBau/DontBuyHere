@@ -23,6 +23,11 @@
             <p>Reseñas</p>
         </span>
     </li>
+    @if (session('success-update'))
+    <div class="alert alert-primary text-center">{{session('success-update')}}</div>
+@elseif (session('success-delete'))
+    <div class="alert alert-warning text-center">{{session('success-delete')}}</div>
+@endif
 </ul>
 <div class="table-data">
     <div class="order">
@@ -56,7 +61,11 @@
                             <td><span class="status process">{{$resena['estado']}}</span></td>
                         @endif
                         <td id="UD"><i class='bx bxs-edit-alt'></i></td>
-                        <td id="UD"><i class='bx bxs-eraser'></td>
+                        <td id="UD"><form action="{{route('re.destroy', $resena)}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta reseña?')">
+                            @csrf
+                            @method('DELETE')
+                             <button type="submit" style="border: none; background-color: transparent; cursor: pointer;"><i class='bx bxs-eraser'></i></button>
+                        </form></td>
                     </tr>
                  @endforeach
                 <tr>

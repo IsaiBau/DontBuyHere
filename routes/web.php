@@ -48,7 +48,11 @@ Route::controller(DashboardController::class)->group(function(){
     Route::put('/userData/{usuario}', 'update')->name('update');
     Route::delete('/delete/{usuario}', 'destroy')->name('user.destroy');
     //CRUD ESTABLECIMIENTO
-    Route::get('/esData/{usuario}', 'editEs')->name('editarEs.index');
+    Route::get('/esData/{establecimiento}', 'editEs')->name('editarEs.index');
+    Route::put('/esData/{establecimiento}', 'updateEs')->name('updateEs');
+    Route::delete('/deleteEs/{establecimiento}', 'destroyEs')->name('es.destroy');
+    //CRUD RESEÑA
+    Route::delete('/deleteRe/{resena}', 'destroyRe')->name('re.destroy');
 });
 
 Route::get('vistaReview', [VistaRController::class, 'vista'])->name('vistaReview');

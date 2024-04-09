@@ -55,7 +55,27 @@ class DashboardController extends Controller
     public function editEs(Establecimiento $establecimiento){
         return view('edit_establecimiento', compact('establecimiento'));
     }
+    /*
+    public function updateEs(addUserRequests $request, Establecimiento $usuario){
+        $usuario->update([
+            'name'=>$request->name,
+            'user'=>$request->user,
+            'email'=>$request->email,
+            'password'=>$request->password,
+        ]);
+        return redirect()->action([DashboardController::class, 'indexUsu'])->with('success-update', 'Edición completa');
+    }*/
     public function index2(){
         return 'dashboard';
+    }
+    
+    public function destroyEs(Establecimiento $establecimiento){
+        $establecimiento->delete();
+        return redirect()->action([DashboardController::class, 'indexEs'])->with('success-delete', 'Establecimiento eliminado con éxito');
+    }
+    //CRUD RESEÑAS
+    public function destroyRe(Resena $resena){
+        $resena->delete();
+        return redirect()->action([DashboardController::class, 'indexRe'])->with('success-delete', 'Establecimiento eliminado con éxito');
     }
 }
