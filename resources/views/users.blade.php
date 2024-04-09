@@ -44,6 +44,7 @@
                     <th>Nombre</th>
                     <th id="LN">Nombre de usuario</th>
                     <th>Correo</th>
+                    <th>Tipo</th>
                     <th id="UD">Editar</th>
                     <th id="UD">Eliminar</th>
                 </tr>
@@ -54,6 +55,7 @@
                         <td><p>{{$usuario['name']}}</p></td>
                         <td id="LN">{{$usuario['user']}}</td>
                         <td>{{$usuario['email']}}</td>
+                        <td>{{$usuario['rol']}}</td>
                         <td id="UD"><a href="{{route('editar.index', $usuario)}}"><i class='bx bxs-edit-alt'></i></a></td>
                         <td id="UD"><form action="{{route('user.destroy', $usuario)}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">
                             @csrf

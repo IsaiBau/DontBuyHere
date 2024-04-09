@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\addUserRequests;
+use App\Models\Establecimiento;
+use App\Models\Resena;
+use App\Models\Tipo_establecimiento;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,11 +16,13 @@ class DashboardController extends Controller
     }
     function  indexEs() {
         $activeLink = 'establecimiento';
-        return view('establecimiento', compact('activeLink'));
+        $establecimiento = Establecimiento::with('tipoEstablecimiento')->get();
+        return view('establecimiento', compact('activeLink'), ['es'=> $establecimiento]);
     }
     function  indexRe() {
         $activeLink = 'reviews';
-        return view('reviews', compact('activeLink'));
+        $resena = Resena::with('establecimiento', 'user')->get();
+        return view('reviews', compact('activeLink', 'resena'));
     }
     function  indexUsu() {
         $activeLink = 'users';
@@ -46,7 +51,10 @@ class DashboardController extends Controller
         $usuario->delete();
         return redirect()->action([DashboardController::class, 'indexUsu'])->with('success-delete', 'Usuario eliminado con éxito');
     }
-
+    //CRUD ESTABLECIMIENTOS
+    public function editEs(Establecimiento $establecimiento){
+        return view('edit_establecimiento', compact('establecimiento'));
+    }
     public function index2(){
         return 'dashboard';
     }

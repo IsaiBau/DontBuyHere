@@ -11,6 +11,10 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    public function resenas()
+    {
+        return $this->hasMany(Resena::class, 'id_user');
+    }
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -23,6 +27,7 @@ class User extends Authenticatable
         'user',
         'email',
         'password',
+        'rol',
     ];
 
     /**

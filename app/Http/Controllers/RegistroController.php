@@ -22,8 +22,8 @@ class RegistroController extends Controller
         $reg->user = $request->user;
         $reg->email = $request->email;
         $reg->password = $request->password;
+        $reg->rol = 'usuario';
         $reg->save();
-
         return redirect()->route('login.index');
 
     }

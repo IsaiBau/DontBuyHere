@@ -47,6 +47,8 @@ Route::controller(DashboardController::class)->group(function(){
     Route::get('/userData/{usuario}', 'edit')->name('editar.index');
     Route::put('/userData/{usuario}', 'update')->name('update');
     Route::delete('/delete/{usuario}', 'destroy')->name('user.destroy');
+    //CRUD ESTABLECIMIENTO
+    Route::get('/esData/{usuario}', 'editEs')->name('editarEs.index');
 });
 
 Route::get('vistaReview', [VistaRController::class, 'vista'])->name('vistaReview');
