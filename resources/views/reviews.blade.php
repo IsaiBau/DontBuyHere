@@ -19,7 +19,7 @@
     <li>
         <i class='bx review bxs-calendar-check' ></i>
         <span class="text">
-            <h3>{{$totalusuarios = App\Models\Resena::count();}}</h3>
+            <h3>{{$totalresenas = App\Models\Resena::count();}}</h3>
             <p>Reseñas</p>
         </span>
     </li>
@@ -60,7 +60,7 @@
                         @elseif ($resena['estado'] == "En proceso")
                             <td><span class="status process">{{$resena['estado']}}</span></td>
                         @endif
-                        <td id="UD"><i class='bx bxs-edit-alt'></i></td>
+                        <td id="UD"><a href="{{route('editarRe.index', $resena)}}"><i class='bx bxs-edit-alt'></i></a></td>
                         <td id="UD"><form action="{{route('re.destroy', $resena)}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta reseña?')">
                             @csrf
                             @method('DELETE')

@@ -12,7 +12,9 @@ class DashboardController extends Controller
 {
     function  index() {
         $activeLink = 'dashboard';
-        return view('dashboard', compact('activeLink'));
+        $establecimiento = Establecimiento::with('tipoEstablecimiento')->get();
+        $resena = Resena::with('establecimiento', 'user')->get();
+        return view('dashboard', compact('activeLink', 'establecimiento', 'resena'));
     }
     function  indexEs() {
         $activeLink = 'establecimiento';
@@ -65,17 +67,29 @@ class DashboardController extends Controller
         ]);
         return redirect()->action([DashboardController::class, 'indexUsu'])->with('success-update', 'Edición completa');
     }*/
-    public function index2(){
-        return 'dashboard';
-    }
-    
     public function destroyEs(Establecimiento $establecimiento){
         $establecimiento->delete();
         return redirect()->action([DashboardController::class, 'indexEs'])->with('success-delete', 'Establecimiento eliminado con éxito');
     }
     //CRUD RESEÑAS
+    public function editRe(Resena $resena){
+        return view('usersEdit', compact('resena'));
+    }
+
+    public function updateRe(addUserRequests $request, Resena $usuario){
+        $usuario->update([
+            'name'=>$request->name,
+            'user'=>$request->user,
+            'email'=>$request->email,
+            'password'=>$request->password,
+        ]);
+        return redirect()->action([DashboardController::class, 'indexRe'])->with('success-update', 'Edición completa');
+    }
     public function destroyRe(Resena $resena){
         $resena->delete();
-        return redirect()->action([DashboardController::class, 'indexRe'])->with('success-delete', 'Establecimiento eliminado con éxito');
+        return redirect()->action([DashboardController::class, 'indexRe'])->with('success-delete', 'Reseña eliminada con éxito');
+    }
+    public function index2(){
+        return 'dashboard';
     }
 }

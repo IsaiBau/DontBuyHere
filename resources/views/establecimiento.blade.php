@@ -19,7 +19,7 @@
     <li>
         <i class='bx establecimiento bx-buildings' ></i>
         <span class="text">
-            <h3>{{$totalusuarios = App\Models\Establecimiento::count();}}</h3>
+            <h3>{{$totalEs = App\Models\Establecimiento::count();}}</h3>
             <p>Establecimientos</p>
         </span>
     </li>

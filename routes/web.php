@@ -52,6 +52,8 @@ Route::controller(DashboardController::class)->group(function(){
     Route::put('/esData/{establecimiento}', 'updateEs')->name('updateEs');
     Route::delete('/deleteEs/{establecimiento}', 'destroyEs')->name('es.destroy');
     //CRUD RESEÑA
+    Route::get('/reData/{resena}', 'edit')->name('editarRe.index');
+    Route::put('/reData/{resena}', 'update')->name('updateRe');
     Route::delete('/deleteRe/{resena}', 'destroyRe')->name('re.destroy');
 });
 

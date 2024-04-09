@@ -19,20 +19,18 @@
     <li>
         <i class='bx review bxs-calendar-check' ></i>
         <span class="text">
-            <h3>1020</h3>
+            <h3>{{$totalResenas = App\Models\Resena::count();}}</h3>
             <p>Reseñas</p>
         </span>
     </li>
     <li>
         <i class='bx user bxs-group' ></i>
         <span class="text">
-            <h3>2834</h3>
+            <h3>{{$totalEs = App\Models\Establecimiento::count();}}</h3>
             <p>Usuarios</p>
         </span>
     </li>
 </ul>
-
-
 <div class="table-data">
     <div class="order">
         <div class="head">
@@ -48,38 +46,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <img src="/img/pizzeria.jpg" id="img_es">
-                        <p>Mal establecimiento...</p>
-                    </td>
-                    <td id="date">01-03-2024</td>
-                    <td><span class="status completed">Completado</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="/img/restaurante.jpg" id="img_es">
-                        <p>Deja mucho que desear...</p>
-                    </td>
-                    <td id="date">01-03-2024</td>
-                    <td><span class="status pending">Pendiente</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="/img/taqueria.jpg" id="img_es">
-                        <p>No es lo que buscaba...</p>
-                    </td>
-                    <td id="date">01-03-2024</td>
-                    <td><span class="status process">En proceso</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="/img/taqueria.jpg" id="img_es">
-                        <p>Pedi una hamburguesa...</p>
-                    </td>
-                    <td id="date">01-03-2024</td>
-                    <td><span class="status pending">Pendiente</span></td>
-                </tr>
+                @foreach ($resena as $resena)
+                    <tr>
+                        <td>
+                            <img src="{{$resena->establecimiento->url_imagen}}" id="img_es">
+                            <p>{{$resena['resena']}}</p>
+                        </td>
+                        <td id="date">{{$resena['fecha']}}</td>
+                        @if ($resena['estado'] == "Sin leer")
+                            <td><span class="status pending">{{$resena['estado']}}</span></td>
+                        @elseif ($resena['estado'] == "Completado")
+                            <td><span class="status completed">{{$resena['estado']}}</span></td>
+                        @elseif ($resena['estado'] == "En proceso")
+                            <td><span class="status process">{{$resena['estado']}}</span></td>
+                        @endif
+                    </tr>
+             @endforeach
                 <tr>
                     <td>
                         <img src="/img/pizzeria.jpg" id="img_es">
@@ -96,17 +78,17 @@
             <h3>Establecimientos</h3>
         </div>
         <ul class="todo-list">
-            <li class="completed">
-                <p>Little Caesar</p>
+            @foreach ($establecimiento as $establecimiento)
+            <li @if ($establecimiento->tipoEstablecimiento->name == "Restaurante")
+                class="completed"
+            @elseif ($establecimiento->tipoEstablecimiento->name == "Tienda")
+                class="not-completed"
+            @endif >
+                <p>{{$establecimiento['name']}}</p>
             </li>
-            <li class="completed">
+         @endforeach
+            <li  class="completed">
                 <p>Taquería "El tío Martín"</p>
-            </li>
-            <li class="completed">
-                <p>MC Donald's</p>
-            </li>
-            <li class="completed">
-                <p>Burguer King</p>
             </li>
             <li class="not-completed">
                 <p>Soriana guayabal</p>
