@@ -57,16 +57,39 @@ class DashboardController extends Controller
     public function editEs(Establecimiento $establecimiento){
         return view('edit_establecimiento', compact('establecimiento'));
     }
-    /*
-    public function updateEs(addUserRequests $request, Establecimiento $usuario){
-        $usuario->update([
-            'name'=>$request->name,
-            'user'=>$request->user,
-            'email'=>$request->email,
-            'password'=>$request->password,
-        ]);
-        return redirect()->action([DashboardController::class, 'indexUsu'])->with('success-update', 'Edición completa');
-    }*/
+    public function updateEs(Request $request, Establecimiento $establecimiento)
+{
+    // Validación de datos
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'direccion' => 'required|string|max:255',
+        'localType' => 'required|exists:tipo_establecimientos,id',
+        'url_imagen' => 'nullable|image|max:2048', // 2MB
+    ]);
+
+    try {
+        // Actualizar datos del establecimiento
+        $establecimiento->name = $request->name;
+        $establecimiento->direccion = $request->direccion;
+        $establecimiento->id_tipo_establecimiento = $request->localType;
+
+        // Manejo de imagen
+        if ($request->hasFile('url_imagen')) {
+            $path = $request->file('url_imagen')->store('establecimientos', 'public');
+            $establecimiento->url_imagen = $path;
+        }
+
+        // Guardar cambios
+        $establecimiento->save();
+
+        // Redireccionar con mensaje
+        return redirect()->route('nombreDeTuRuta.index')->with('success', 'Establecimiento actualizado correctamente.');
+    } catch (\Exception $e) {
+        // Manejo de errores
+        return redirect()->back()->with('error', 'Error al actualizar el establecimiento: ' . $e->getMessage());
+    }
+}
+
     public function destroyEs(Establecimiento $establecimiento){
         $establecimiento->delete();
         return redirect()->action([DashboardController::class, 'indexEs'])->with('success-delete', 'Establecimiento eliminado con éxito');
