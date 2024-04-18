@@ -14,158 +14,38 @@
 <br>
     <div class="container">
         <div class="row">
-          <div class="col">
-            <div class="card mb-3">
-              <a href="/vistaReview" class="links-view">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="img/taqueria.jpg" style="min-height: 250px" width="100%"  class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body" >
-                      <h5 class="card-title"><b>Tacos "Los 3 Angelitos"</b></h5>
-                      <p class="card-text">Fonda del Mercado de la Sierra. Horario de 8:00 a 19:00, Lunes a Viernes.</p>
-                      <div>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
+                    @foreach($establecimientos as $establecimiento)
+                    <div class="col">
+                    <div class="card mb-3">
+                        <a href="/vistaReview" class="links-view">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="{{ $establecimiento->url_imagen }}" style="min-height: 250px" width="100%" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><b>{{ $establecimiento->name }}</b></h5>
+                                        <p class="card-text">{{ $establecimiento->direccion }}</p>
+                                        <div>
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                @if ($i <= $establecimiento->calificacion)
+                                                    <span class="fa fa-star checked"></span>
+                                                @else
+                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                @endif
+                                            @endfor
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     </div>
-                  </div>
+                    @endforeach
                 </div>
-              </a>
-              </div>
-          </div>
-          <div class="col">
-            <div class="card mb-3">
-              <a href="/vistaReview" class="links-view">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="img/restaurante.jpg" style="min-height: 250px" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title"><b>Restaurante Caro</b></h5>
-                      <p class="card-text">Restaurante Caro. Horario de 8:00 a 19:00, Lunes a Viernes.</p>
-                      <div>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              </div>
-          </div>
-          <div class="col">
-            <div class="card mb-3">
-              <a href="/vistaReview" class="links-view">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="img/pizzeria.jpg" style="min-height: 250px" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title"><b>Little Caesar’s</b></h5>
-                      <p class="card-text">Pizzería famosa de la ciudad. Horario de 8:00 a 19:00, Lunes a Viernes.</p>
-                      <div>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              </div>
-          </div>
+            </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <div class="card mb-3">
-              <a href="/vistaReview" class="links-view">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="img/taqueria.jpg" style="min-height: 250px" width="100%"  class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body" >
-                      <h5 class="card-title"><b>Tacos "Los 3 Angelitos"</b></h5>
-                      <p class="card-text">Fonda del Mercado de la Sierra. Horario de 8:00 a 19:00, Lunes a Viernes.</p>
-                      <div>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              </div>
-          </div>
-          <div class="col">
-            <div class="card mb-3">
-              <a href="/vistaReview" class="links-view">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="img/restaurante.jpg" style="min-height: 250px" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title"><b>Restaurante Caro</b></h5>
-                      <p class="card-text">Restaurante Caro. Horario de 8:00 a 19:00, Lunes a Viernes.</p>
-                      <div>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              </div>
-          </div>
-          <div class="col">
-            <div class="card mb-3">
-              <a href="/vistaReview" class="links-view">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="img/pizzeria.jpg" style="min-height: 250px" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title"><b>Little Caesar’s</b></h5>
-                      <p class="card-text">Pizzería famosa de la ciudad. Horario de 8:00 a 19:00, Lunes a Viernes.</p>
-                      <div>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              </div>
-          </div>
-        </div>
-
-      </div>
-    
-
-   </div>
-<br>
+    </div>
 </div>
+
 @endsection
