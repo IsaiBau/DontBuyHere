@@ -1,15 +1,15 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\VistaRController;
-<<<<<<< Updated upstream
-=======
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\reviewController;
->>>>>>> Stashed changes
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,10 +23,10 @@ use App\Http\Controllers\reviewController;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::controller(HomeController::class)->group(function(){
-    Route::get('/home', 'index');
+    Route::get('/home', 'index')->name('home');
     Route::get('/login', 'login')->name('login.index');
     Route::get('/register', 'register')->name('register.index');
     // Route::get('/review', 'review')->name('review');
@@ -36,8 +36,6 @@ Route::controller(HomeController::class)->group(function(){
     // Route::get('/shop', 'shops')->name('shop');
 });
 
-<<<<<<< Updated upstream
-=======
 // Route::get(reviewController::class)->group(function(){
 //     Route::get('/review', 'review')->name('review.index');
 // });
@@ -52,19 +50,25 @@ Route::post('/register', [RegistroController::class, 'store'])->name('registro')
 Route::post('/login', [LoginController::class, 'index'])->name('login.index');
 Route::post('/login', [LoginController::class, 'login'])->name('login.log');
 
->>>>>>> Stashed changes
 Route::controller(DashboardController::class)->group(function(){
-    Route::get('/dashboard', 'index')->name('dashboard');
+    Route::get('/dashboard', 'index')->middleware('auth.admin')->name('dashboard');
     Route::get('/establecimiento', 'indexEs')->name('establecimiento');
     Route::get('/reviews', 'indexRe')->name('reviews');
     Route::get('/users', 'indexUsu')->name('user');
     Route::get('/logout', 'logout')->name('logout');
+    //CRUD
+    Route::get('/userData/{usuario}', 'edit')->name('editar.index');
+    Route::put('/userData/{usuario}', 'update')->name('update');
+    Route::delete('/delete/{usuario}', 'destroy')->name('user.destroy');
+    //CRUD ESTABLECIMIENTO
+    Route::get('/esData/{establecimiento}', 'editEs')->name('editarEs.index');
+    Route::put('/esData/{establecimiento}', 'updateEs')->name('updateEs');
+    Route::delete('/deleteEs/{establecimiento}', 'destroyEs')->name('es.destroy');
+    //CRUD RESEÑA
+    Route::get('/reData/{resena}', 'edit')->name('editarRe.index');
+    Route::put('/reData/{resena}', 'update')->name('updateRe');
+    Route::delete('/deleteRe/{resena}', 'destroyRe')->name('re.destroy');
 });
 
 Route::get('vistaReview', [VistaRController::class, 'vista'])->name('vistaReview');
-//Route::get('/login', [HomeController::class, 'index']);
 
-<<<<<<< Updated upstream
-=======
-//Route::get('/dashboard', 'index')->name('dashboard1') ->middleware('auth.admin')->name('admin.index');
->>>>>>> Stashed changes
