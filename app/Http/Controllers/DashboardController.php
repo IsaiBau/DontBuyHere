@@ -1,33 +1,39 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\addUserRequests;
+use App\Models\Establecimiento;
+use App\Models\Resena;
+use App\Models\Tipo_establecimiento;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     function  index() {
         $activeLink = 'dashboard';
-        return view('dashboard', compact('activeLink'));
+        $establecimiento = Establecimiento::with('tipoEstablecimiento')->get();
+        $resena = Resena::with('establecimiento', 'user')->get();
+        return view('dashboard', compact('activeLink', 'establecimiento', 'resena'));
     }
     function  indexEs() {
         $activeLink = 'establecimiento';
-        return view('establecimiento', compact('activeLink'));
+        $establecimiento = Establecimiento::with('tipoEstablecimiento')->get();
+        return view('establecimiento', compact('activeLink'), ['es'=> $establecimiento]);
     }
     function  indexRe() {
         $activeLink = 'reviews';
-        return view('reviews', compact('activeLink'));
+        $resena = Resena::with('establecimiento', 'user')->get();
+        return view('reviews', compact('activeLink', 'resena'));
     }
     function  indexUsu() {
         $activeLink = 'users';
-        return view('users', compact('activeLink'));
+        $usuarios = User::All();
+        return view('users', compact('activeLink'), ['usu'=> $usuarios]);
     }
-
     function logout(){
         return redirect()->route('login.index');
     }
-<<<<<<< Updated upstream
-=======
     //CRUD USUARIOS
     public function edit(User $usuario){
         return view('usersEdit', compact('usuario'));
@@ -51,7 +57,18 @@ class DashboardController extends Controller
     public function editEs(Establecimiento $establecimiento){
         return view('edit_establecimiento', compact('establecimiento'));
     }
-
+  
+    /*
+    public function updateEs(addUserRequests $request, Establecimiento $usuario){
+        $usuario->update([
+            'name'=>$request->name,
+            'user'=>$request->user,
+            'email'=>$request->email,
+            'password'=>$request->password,
+        ]);
+        return redirect()->action([DashboardController::class, 'indexUsu'])->with('success-update', 'Edición completa');
+    }*/
+  
     public function updateEs(Request $request, Establecimiento $establecimiento){
         $establecimiento->update([
             'name' => $request->name,
@@ -67,10 +84,7 @@ class DashboardController extends Controller
     
         return redirect('/establecimiento')->with('success-update', 'Edición completa');
     }
-    
-    
-    
-    
+
     public function destroyEs(Establecimiento $establecimiento){
         $establecimiento->delete();
         return redirect()->action([DashboardController::class, 'indexEs'])->with('success-delete', 'Establecimiento eliminado con éxito');
@@ -96,5 +110,4 @@ class DashboardController extends Controller
     public function index2(){
         return 'dashboard';
     }
->>>>>>> Stashed changes
 }
