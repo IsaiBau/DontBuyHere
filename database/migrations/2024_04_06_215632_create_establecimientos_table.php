@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('name', 255);
             $table->string('direccion', 255);
             $table->string('url_imagen', 255);
+            $table->decimal('calificacion', 5, 2)->nullable();
+
             $table->timestamps();
             $table->foreign('id_tipo_establecimiento')
             ->references('id') 

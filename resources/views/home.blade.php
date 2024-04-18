@@ -88,10 +88,9 @@
           </div>
         </div>
       </div>
-    
 
-   </div>
-   <br>
+  </div>
+  <br>
 </div>
 
 <div class="container-fluid p-5 bg-secondary fondo">

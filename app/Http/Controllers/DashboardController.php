@@ -57,6 +57,7 @@ class DashboardController extends Controller
     public function editEs(Establecimiento $establecimiento){
         return view('edit_establecimiento', compact('establecimiento'));
     }
+  
     /*
     public function updateEs(addUserRequests $request, Establecimiento $usuario){
         $usuario->update([
@@ -67,6 +68,23 @@ class DashboardController extends Controller
         ]);
         return redirect()->action([DashboardController::class, 'indexUsu'])->with('success-update', 'Edición completa');
     }*/
+  
+    public function updateEs(Request $request, Establecimiento $establecimiento){
+        $establecimiento->update([
+            'name' => $request->name,
+            'direccion' => $request->direccion,
+            'url_imagen' => $request->url_imagen,
+        ]);
+        if ($request->hasFile('FOTO')) {
+            $rutaImagen = $request->file('FOTO')->store('img');
+            $establecimiento->url_imagen = $rutaImagen;
+        }
+
+        $establecimiento->save();
+    
+        return redirect('/establecimiento')->with('success-update', 'Edición completa');
+    }
+
     public function destroyEs(Establecimiento $establecimiento){
         $establecimiento->delete();
         return redirect()->action([DashboardController::class, 'indexEs'])->with('success-delete', 'Establecimiento eliminado con éxito');
