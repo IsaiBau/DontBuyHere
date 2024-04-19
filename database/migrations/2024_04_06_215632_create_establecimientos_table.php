@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_tipo_establecimiento');
             $table->string('name', 255);
             $table->string('direccion', 255);
+            $table->string('descripcion', 255);
             $table->string('url_imagen', 255);
             $table->decimal('calificacion', 5, 2)->nullable();
 

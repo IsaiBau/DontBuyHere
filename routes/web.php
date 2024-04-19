@@ -9,6 +9,7 @@ use App\Http\Controllers\VistaRController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\reviewController;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,7 @@ Route::post('/guardar-resena', [reviewController::class, 'guardarResena'])->name
 
 
 Route::get('/restaurant', [RestaurantController::class, 'index'])->name('restaurant.index');
+Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 Route::post('/register', [RegistroController::class, 'store'])->name('registro');
 Route::post('/login', [LoginController::class, 'index'])->name('login.index');
 Route::post('/login', [LoginController::class, 'login'])->name('login.log');

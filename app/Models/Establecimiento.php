@@ -21,6 +21,7 @@ class Establecimiento extends Model
         'id_tipo_establecimiento',
         'name',
         'direccion',
+        'descripcion',
         'url_imagen',
     ];
 }

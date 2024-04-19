@@ -57,18 +57,7 @@ class DashboardController extends Controller
     public function editEs(Establecimiento $establecimiento){
         return view('edit_establecimiento', compact('establecimiento'));
     }
-  
-    /*
-    public function updateEs(addUserRequests $request, Establecimiento $usuario){
-        $usuario->update([
-            'name'=>$request->name,
-            'user'=>$request->user,
-            'email'=>$request->email,
-            'password'=>$request->password,
-        ]);
-        return redirect()->action([DashboardController::class, 'indexUsu'])->with('success-update', 'Edición completa');
-    }*/
-  
+
     public function updateEs(Request $request, Establecimiento $establecimiento){
         $establecimiento->update([
             'name' => $request->name,

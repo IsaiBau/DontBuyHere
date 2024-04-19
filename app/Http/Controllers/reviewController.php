@@ -37,6 +37,7 @@ class reviewController extends Controller
         $establecimiento->name = $request->input('localNameAdd');
         $establecimiento->id_tipo_establecimiento = $request->input('localTypeAdd');
         $establecimiento->direccion = $request->input('address');
+        $establecimiento->descripcion = $request->input('review');
 
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');
