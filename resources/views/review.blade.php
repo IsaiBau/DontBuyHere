@@ -15,12 +15,9 @@
                         <form action="#" class="row" style="width: 100%">
                             <div class="col">
                                 <label for="localName" class="text-black montserrat-medium label-font">Nombre del establecimiento</label>
-                                <select name="localName" class="form-select mb-3 border-dark border-1 form" style="max-width: 27rem;">
-                                    <option selected>Elija el local...</option>
-                                    <option value="1">Little Caesars</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                                <div id='searchBoxContainer' >
+                                    <input type='text' id='searchBox' class="border-dark border-1 form-control mb-3 form"/>
+                                </div>
                                 <label for="localType" class="text-black montserrat-medium label-font">Tipo de local</label>
                                 <select name="localType" class="form-select mb-3 border-dark border-1 form">
                                     <option selected>Tienda, Restaurante, Fonda...</option>
@@ -49,7 +46,8 @@
                     </div>                    
                 </div>
             </div>
-        </div>        
+        </div>
+        <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;background-color:gray"></div>        
     </div>
     
     <div class="d-flex justify-content-center align-items-center">
