@@ -16,7 +16,6 @@ class RegistroController extends Controller
 
     public function store(addUserRequests $request) {
         //return $request->all();
- 
         $reg = new User();
         $reg->name = $request->name;
         $reg->user = $request->user;

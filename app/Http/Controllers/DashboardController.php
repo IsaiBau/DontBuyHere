@@ -53,12 +53,37 @@ class DashboardController extends Controller
         $usuario->delete();
         return redirect()->action([DashboardController::class, 'indexUsu'])->with('success-delete', 'Usuario eliminado con éxito');
     }
-    //CRUD ESTABLECIMIENTOS
-    public function editEs(Establecimiento $establecimiento){
+     //CRUD ESTABLECIMIENTOS
+     public function editEs(Establecimiento $establecimiento){
         return view('edit_establecimiento', compact('establecimiento'));
     }
 
     public function updateEs(Request $request, Establecimiento $establecimiento){
+
+        try {
+            
+            $establecimiento->name = $request->name;
+            $establecimiento->direccion = $request->direccion;
+            $establecimiento->id_tipo_establecimiento = $request->localType;
+    
+            
+        if ($request->hasFile('url_imagen')) {
+            $image = $request->file('url_imagen');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('img'), $imageName);
+            $establecimiento->url_imagen = 'img/' . $imageName;
+        }
+        
+            $establecimiento->save();
+    
+            return redirect()->route('establecimiento')->with('success', 'Establecimiento actualizado correctamente.');
+            
+        } catch (\Exception $e) {
+            
+            return redirect()->back()->with('error', 'Error al actualizar el establecimiento: ' . $e->getMessage());
+        }
+    }
+    
         $establecimiento->update([
             'name' => $request->name,
             'direccion' => $request->direccion,
