@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
-        <link rel="stylesheet" href="css/plantillaGeneral.css">
+        <link rel="stylesheet" href="{{ asset('css/plantillaGeneral.css') }}">
         <link rel="stylesheet" href="/css/fontello.css">
-        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="{{ asset('css/home.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <meta name="description" content="This sample shows how to include business listings in the autosuggestion module." />
@@ -44,7 +44,7 @@
         <title>Don't buy here</title>
     </head>
     <body>
-      <header id="header">
+    <header id="header">
         <nav class="navbar1">
             <div id="branding">
                 <form action="" id="content_search">
@@ -64,7 +64,7 @@
                         if ($usuario_iniciado) {
                             echo '<li><a href="login" class="iconUser"><i class="icon-user"></i></a><a href="#" class="textUser">Perfil</a></li>';
                         } else {
-                            echo '<li><a href="login" class="btnLogin"><button class="btnLogin">Login</button></a><a href="#" class="textLogin">Login</a></li>';
+                            echo '<li><a href="login" class="btnLogin" ><button class="btnLogin">Login</button></a><a href="#" class="textLogin">Login</a></li>';
                         }
                     ?>
                 </ul>

@@ -3,7 +3,7 @@
 @section('contenido')
 <div class="head-title">
     <div class="left">
-        <h1>Panel de control</h1>
+        <h1>Panel de control </h1>
         <ul class="breadcrumb">
             <li>
                 <a href="/dashboard">Panel de control</a>
@@ -15,6 +15,20 @@
         </ul>
     </div>
 </div>
+<ul class="box-info">
+    <li>
+        <i class='bx establecimiento bx-buildings' ></i>
+        <span class="text">
+            <h3>{{$totalEs = App\Models\Establecimiento::count();}}</h3>
+            <p>Establecimientos</p>
+        </span>
+    </li>
+    @if (session('success-update'))
+    <div class="alert alert-primary text-center">{{session('success-update')}}</div>
+@elseif (session('success-delete'))
+    <div class="alert alert-warning text-center">{{session('success-delete')}}</div>
+@endif
+</ul>
 <div class="table-data">
     <div class="order">
         <div class="head">
@@ -26,12 +40,28 @@
                 <tr>
                     <th>Establecimiento</th>
                     <th id="ubi">Ubicacion</th>
-                    <th>Calificacion</th>
+                    <th>Tipo de establecimiento</th>
                     <th id="UD">Editar</th>
                     <th id="UD">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($es as $establecimiento)
+                    <tr>
+                        <td>
+                            <img src="{{$establecimiento['url_imagen']}}" id="img_es">
+                            <p>{{$establecimiento['name']}}</p>
+                        </td>
+                        <td id="ubi">{{$establecimiento['direccion']}}</td>
+                        <td id="ubi">{{$establecimiento->tipoEstablecimiento->name}}</td>
+                        <td id="UD"><a href="{{route('editarEs.index', $establecimiento)}}"><i class='bx bxs-edit-alt'></i></a></td>
+                        <td id="UD"><form action="{{route('es.destroy', $establecimiento)}}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este establecimiento?')">
+                            @csrf
+                            @method('DELETE')
+                             <button type="submit" style="border: none; background-color: transparent; cursor: pointer;"><i class='bx bxs-eraser'></i></button>
+                        </form></td>
+                    </tr>
+                 @endforeach
                 <tr>
                     <td>
                         <img src="/img/pizzeria.jpg" id="img_es">
@@ -42,46 +72,7 @@
                     <td id="UD"><i class='bx bxs-edit-alt'></i></td>
                     <td id="UD"><i class='bx bxs-eraser'></td>
                 </tr>
-                <tr>
-                    <td>
-                        <img src="/img/restaurante.jpg" id="img_es">
-                        <p>Rodízio</p>
-                    </td>
-                    <td id="ubi">Calle Paseo La Choca 126, 86035 Villahermosa, Tabasco</td>
-                    <td><span>4.0</span></td>
-                    <td id="UD"><i class='bx bxs-edit-alt'></i></td>
-                    <td id="UD"><i class='bx bxs-eraser'></td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="/img/taqueria.jpg" id="img_es">
-                        <p>Taqueria "El amigo Martin"</p>
-                    </td>
-                    <td id="ubi">Playas del Rosario</td>
-                    <td><span>2.3</span></td>
-                    <td id="UD"><i class='bx bxs-edit-alt'></i></td>
-                    <td id="UD"><i class='bx bxs-eraser'></td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="/img/taqueria.jpg" id="img_es">
-                        <p>Taqueria "J Jimenez"</p>
-                    </td>
-                    <td id="ubi">Playas del Rosario</td>
-                    <td><span>4.9</span></td>
-                    <td id="UD"><i class='bx bxs-edit-alt'></i></td>
-                    <td id="UD"><i class='bx bxs-eraser'></td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="/img/pizzeria.jpg" id="img_es">
-                        <p>Domino´s</p>
-                    </td>
-                    <td id="ubi">Soriana Guayabal</td>
-                    <td><span>5.0</span></td>
-                    <td id="UD"><i class='bx bxs-edit-alt'></i></td>
-                    <td id="UD"><i class='bx bxs-eraser'></td>
-                </tr>
+                
             </tbody>
         </table>
     </div>
