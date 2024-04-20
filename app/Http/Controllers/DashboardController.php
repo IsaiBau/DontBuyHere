@@ -53,42 +53,37 @@ class DashboardController extends Controller
         $usuario->delete();
         return redirect()->action([DashboardController::class, 'indexUsu'])->with('success-delete', 'Usuario eliminado con éxito');
     }
-    //CRUD ESTABLECIMIENTOS
-    public function editEs(Establecimiento $establecimiento){
+     //CRUD ESTABLECIMIENTOS
+     public function editEs(Establecimiento $establecimiento){
         return view('edit_establecimiento', compact('establecimiento'));
     }
-    public function updateEs(Request $request, Establecimiento $establecimiento)
-{
-    // Validación de datos
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'direccion' => 'required|string|max:255',
-        'localType' => 'required|exists:tipo_establecimientos,id',
-        'url_imagen' => 'nullable|image|max:2048', // 2MB
-    ]);
 
-    try {
-        // Actualizar datos del establecimiento
-        $establecimiento->name = $request->name;
-        $establecimiento->direccion = $request->direccion;
-        $establecimiento->id_tipo_establecimiento = $request->localType;
+    public function updateEs(Request $request, Establecimiento $establecimiento){
 
-        // Manejo de imagen
+        try {
+            
+            $establecimiento->name = $request->name;
+            $establecimiento->direccion = $request->direccion;
+            $establecimiento->id_tipo_establecimiento = $request->localType;
+    
+            
         if ($request->hasFile('url_imagen')) {
-            $path = $request->file('url_imagen')->store('establecimientos', 'public');
-            $establecimiento->url_imagen = $path;
+            $image = $request->file('url_imagen');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('img'), $imageName);
+            $establecimiento->url_imagen = 'img/' . $imageName;
         }
-
-        // Guardar cambios
-        $establecimiento->save();
-
-        // Redireccionar con mensaje
-        return redirect()->route('nombreDeTuRuta.index')->with('success', 'Establecimiento actualizado correctamente.');
-    } catch (\Exception $e) {
-        // Manejo de errores
-        return redirect()->back()->with('error', 'Error al actualizar el establecimiento: ' . $e->getMessage());
+        
+            $establecimiento->save();
+    
+            return redirect()->route('establecimiento')->with('success', 'Establecimiento actualizado correctamente.');
+            
+        } catch (\Exception $e) {
+            
+            return redirect()->back()->with('error', 'Error al actualizar el establecimiento: ' . $e->getMessage());
+        }
     }
-}
+    
 
     public function destroyEs(Establecimiento $establecimiento){
         $establecimiento->delete();

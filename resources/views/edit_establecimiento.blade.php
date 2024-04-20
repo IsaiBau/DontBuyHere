@@ -29,9 +29,9 @@
                                 <input type="file" name="url_imagen" class="form-control mb-3">
                                 
                                 @if($establecimiento->url_imagen)
-                                    <img src="{{ asset('storage/' . $establecimiento->url_imagen) }}" alt="Foto del establecimiento" height="200px" class="mb-3">
-                                @endif
-                                
+                                    <img src="{{ asset($establecimiento->url_imagen) }}" alt="Foto del establecimiento" height="100px" class="mb-3">
+                                @endif<br>
+
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                             </div>
                         </form>

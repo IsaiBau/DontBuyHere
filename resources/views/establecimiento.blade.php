@@ -62,16 +62,7 @@
                         </form></td>
                     </tr>
                  @endforeach
-                <tr>
-                    <td>
-                        <img src="/img/pizzeria.jpg" id="img_es">
-                        <p>Little Ceaser</p>
-                    </td>
-                    <td id="ubi">Av. Ruíz Cortines</td>
-                    <td><span>4.8</span></td>
-                    <td id="UD"><i class='bx bxs-edit-alt'></i></td>
-                    <td id="UD"><i class='bx bxs-eraser'></td>
-                </tr>
+                
                 
             </tbody>
         </table>
