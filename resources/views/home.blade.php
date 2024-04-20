@@ -5,7 +5,7 @@
 <div class="container-fluid p-5 bg-secondary fondo">
     <h1 class="title"><b>Reseñas destacadas</b></h1>
     <p class="montserrat-regular fs-4">Descubre las últimas y más populares reseñas negativas de nuestra comunidad.</p>
-    <button class="boton"><a href="/review" class="links">Añadir reseña</a></button>
+    <button class="boton"><a href="{{ auth()->check() ? '/review' : '/register' }}" class="links">Añadir reseña</a></button>
 </div>
 
 <div class="container-fluid">
@@ -88,10 +88,9 @@
           </div>
         </div>
       </div>
-    
 
-   </div>
-   <br>
+  </div>
+  <br>
 </div>
 
 <div class="container-fluid p-5 bg-secondary fondo">
