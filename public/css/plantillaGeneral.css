@@ -4,7 +4,6 @@
     --color-red: #f04f30;
     --color-white: #ffffff;
     --color-black: #000000;
-    --color-gray-4: #999999;
     --gradient-x: linear-gradient(90deg,
         hsla(0, 100%, 50%, 0),
         hsl(210, 4%, 64%),
@@ -112,10 +111,10 @@ a {
     color: #ed6f56;
 }
 header {
-    margin: 0 auto;
-    padding: var(--padding);
+    /* margin: 0 auto; */
+    /* padding: var(--padding); */
     outline: var(--debug-layout-outline);
-    width: 100%;
+    /* width: 100%; */
     background-color: var(--color-red);
 }
 
@@ -147,34 +146,47 @@ ol li:before {
 }
 
 .navbar1 {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     justify-content: space-between;
     align-items: center;
     display: flex;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     overflow: hidden;
-    min-height: 40px;
+    /* min-height: 40px; */
 }
 
-.navbar1 li a {
+.navbar1 .liNavBar a {
     color: var(--menu-link-color);
     display: flex;
     text-decoration: none;
     padding: 10px 16px 5px 16px;
     color: var(--color-white);
+    font-size: 1em;
+    color: var(--color-white);
+    transition: font-size 0.5s ease, color 0.3s ease;
 }
 
-.nav-links li a:hover {
-    color: var(--color-gray-4);
+.nav-links .liNavBar a:hover {
+    font-size: 1.2em;
+    color: var(--color-black);
     background: none;
 }
 
 .navbar1 li .textUser {
     display: none;
+    transition: font-size 0.5s ease, color 0.3s ease;
+}
+
+.navbar1 li .textUser:hover {
+    font-size: 1.2em;
+    color: var(--color-black);
+    background: none;
 }
 
 .navbar1 li .iconUser {
-    font-size: 30px;
+    color: var(--color-white);
+    font-size: 50px;
+    transition: font-size 0.5s ease, color 0.3s ease;
 }
 
 .navbar1 li .textLogin {
@@ -240,8 +252,8 @@ ol li:before {
 }
 
 #search {
-    height: 30px;
-    max-width: 500px;
+    height: 45px;
+    width: 300px;
     padding-left: 15px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -254,7 +266,7 @@ ol li:before {
 }
 
 #btnSearch {
-    height: 30px;
+    height: 45px;
     cursor: pointer;
     width: 35px;
     background-color: var(--color-white); 
@@ -318,7 +330,7 @@ footer {
 }
 
 .socials > ul > li > a:hover {
-    color: var(--color-gray-4);
+    color: var(--color-red);
 }
 
 footer > p{
@@ -330,9 +342,14 @@ footer > p{
         padding-top: 0px;
     }
 
-    .navbar1 li a {
+    .navbar1 .liNavBar a {
         color: var(--color-black);
     }
+
+    .navbar1 .liNavBar a:hover{
+        color: var(--color-red);
+    }
+
 
     .menu-trigger {
         z-index: 999;
@@ -387,7 +404,13 @@ footer > p{
     }
 
     .navbar1 li .textUser {
+        color: var(--color-black);
+        text-decoration: none;
         display: flex;
+    }
+
+    .navbar1 li .textUser:hover{
+        color: var(--color-red);
     }
     
     .navbar1 li .iconUser {
@@ -771,7 +794,7 @@ footer > p{
     align-items: center;
     justify-content: center;
   }
-  
+
 .myMap{
     width:77rem;
     min-width:290px;
