@@ -14,7 +14,7 @@
       <header class="header">
          <div class="header__container container">
             <div class="header__toggle" id="header-toggle">
-               <h1 id="titulo">Don't buy here</h1>
+               <h1 id="titulo"><a href="/" class="sidebar__link">Don't Buy Here</a></h1>
                <i class="ri-menu-line"></i>
             </div>
             <div>
@@ -26,7 +26,7 @@
                </form>
             </div>
             <a href="#" class="profile">
-               <img src="/images/people.png">
+               <img src="/img/LogoDn.png">
             </a>
          </div>
       </header>
