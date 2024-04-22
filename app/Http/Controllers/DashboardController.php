@@ -18,8 +18,9 @@ class DashboardController extends Controller
     }
     function  indexEs() {
         $activeLink = 'establecimiento';
+        $establecimientos = Establecimiento::all();
         $establecimiento = Establecimiento::with('tipoEstablecimiento')->get();
-        return view('establecimiento', compact('activeLink'), ['es'=> $establecimiento]);
+        return view('establecimiento', compact('activeLink', 'establecimientos'), ['es'=> $establecimiento]);
     }
     function  indexRe() {
         $activeLink = 'reviews';
@@ -48,7 +49,15 @@ class DashboardController extends Controller
         ]);
         return redirect()->action([DashboardController::class, 'indexUsu'])->with('success-update', 'Edición completa');
     }
-
+    public function updateRe(Request $request, Resena $resena){
+        $resena->update([
+            'resena'=>$request->resena,
+            'calificacion'=>$request->calificacion,
+            'fecha'=>$request->fecha,
+            'estado'=>$request->estado,
+        ]);
+        return redirect()->action([DashboardController::class, 'indexRe'])->with('success-update', 'Edición completa');
+    }
     public function destroy(User $usuario){
         $usuario->delete();
         return redirect()->action([DashboardController::class, 'indexUsu'])->with('success-delete', 'Usuario eliminado con éxito');
@@ -105,18 +114,10 @@ class DashboardController extends Controller
     }
     //CRUD RESEÑAS
     public function editRe(Resena $resena){
-        return view('usersEdit', compact('resena'));
+        return view('edit_revies', compact('resena'));
     }
 
-    public function updateRe(addUserRequests $request, Resena $usuario){
-        $usuario->update([
-            'name'=>$request->name,
-            'user'=>$request->user,
-            'email'=>$request->email,
-            'password'=>$request->password,
-        ]);
-        return redirect()->action([DashboardController::class, 'indexRe'])->with('success-update', 'Edición completa');
-    }
+
     public function destroyRe(Resena $resena){
         $resena->delete();
         return redirect()->action([DashboardController::class, 'indexRe'])->with('success-delete', 'Reseña eliminada con éxito');
