@@ -83,7 +83,7 @@ class DashboardController extends Controller
             return redirect()->back()->with('error', 'Error al actualizar el establecimiento: ' . $e->getMessage());
         }
     }
-    
+    /*
         $establecimiento->update([
             'name' => $request->name,
             'direccion' => $request->direccion,
@@ -97,7 +97,7 @@ class DashboardController extends Controller
         $establecimiento->save();
     
         return redirect('/establecimiento')->with('success-update', 'Edición completa');
-    }
+    }*/
 
     public function destroyEs(Establecimiento $establecimiento){
         $establecimiento->delete();
