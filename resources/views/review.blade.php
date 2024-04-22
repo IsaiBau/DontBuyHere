@@ -14,12 +14,12 @@
                     <div class="d-flex justify-content-center align-items-center mt-4" style="width: 60rem">
                         <form action="#" class="row" style="width: 100%">
                             <div class="col">
-                                <label for="localName" class="text-black montserrat-medium label-font">Nombre del establecimiento</label>
+                                <label for="localName" class="text-black montserrat-medium label-font">Buscar por ubicación</label>
                                 <div id='searchBoxContainer' >
-                                    <input type='text' id='searchBox' class="border-dark border-1 form-control mb-3 form"/>
+                                    <input type='text' id='autocomplete' class="border-dark border-1 form-control mb-3 form"/>
                                 </div>
                                 <label for="localType" class="text-black montserrat-medium label-font">Tipo de local</label>
-                                <select name="localType" class="form-select mb-3 border-dark border-1 form">
+                                <select name="localType" class="form-select mb-3 border-dark border-1 form" id="tipo_local">
                                     <option selected>Tienda, Restaurante, Fonda...</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
@@ -30,7 +30,7 @@
                             </div>
                             <div class="col">
                                 <label for="addres" class="text-black montserrat-medium label-font">Dirección</label><br>
-                                    <input type="text" name="addres" placeholder="Calle, Código Postal, Villahermosa, Tab." class="border-dark border-1 form-control mb-3 form">
+                                    <input id="direccion" type="text" name="addres" placeholder="Calle, Código Postal, Villahermosa, Tab." class="border-dark border-1 form-control mb-3 form">
                                 <label for="calificacion" class="text-black montserrat-medium label-font">Calificacion</label>
                                     <div><img id="calificacion" src="/img/Calificacion.png" alt="calificacion"></div>
                                 <label for="buttonPicture" class="text-black montserrat-medium label-font">Foto</label><br>
@@ -47,8 +47,8 @@
                 </div>
             </div>
         </div>
-        <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;background-color:gray"></div>        
     </div>
+    <div id="map"></div>
     
     <div class="d-flex justify-content-center align-items-center">
     <h1>O</h1>        
