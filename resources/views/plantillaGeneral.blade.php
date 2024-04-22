@@ -67,10 +67,10 @@
             </div>
             
             <div class="menu-trigger">
-                <div class="menu-icon">
-                    <div class="barTop"></div>
-                    <div class="barMiddle"></div>
-                    <div class="barBottom"></div>
+                <div class="menu-icon" style="color: white">
+                    <div class="barTop hamburgerBtn"></div>
+                    <div class="barMiddle hamburgerBtn"></div>
+                    <div class="barBottom hamburgerBtn"></div>
                 </div>
             </div>
         </nav>
@@ -105,4 +105,5 @@
         </script>
     </body>
     <script src="js/bsbase.js"></script>
+    <script src="js/redirect.js"></script>
 </html>

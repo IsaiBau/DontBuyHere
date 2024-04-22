@@ -34,13 +34,19 @@
 }
 
 .rating label:before {
-    content: '\2605'; /* Unicode para estrella vacía */
-    font-size: 80px;
-    color: #ddd;
+    content: url('/img/Estrella.png');
+    /* content: url('/img/Prueba2.png') !important; */
+    display: inline-block;
+    /* content: '\2605'; Unicode para estrella vacía */
+    width: 80px !important;
+    height: 80px !important;
+    /* font-size: 80px;
+    color: #ddd; */
 }
 
 .rating input:checked ~ label:before {
-    color: #fdd835; /* Color de estrella seleccionada */
+    content: url('/img/EstrellaBN.png') !important;
+    /*color: #fd3535; Color de estrella seleccionada */
 }
 
 
@@ -169,6 +175,22 @@ ol li:before {
 .nav-links .liNavBar a:hover {
     font-size: 1.2em;
     color: var(--color-black);
+    background: none;
+}
+
+.textLogin {
+    color: var(--menu-link-color);
+    display: flex;
+    text-decoration: none;
+    padding: 10px 16px 5px 16px;
+    font-size: 1em;
+    color: var(--color-black);
+    transition: font-size 0.5s ease, color 0.3s ease;
+}
+
+.textLogin:hover{
+    font-size: 1.2em;
+    color: var(--color-red);
     background: none;
 }
 
@@ -576,6 +598,10 @@ footer > p{
     opacity: 0;
 }
 
+.hamburgerBtn{
+    background-color: white ;
+}
+
 /* Consulta de medios para dispositivos móviles */
 @media screen and (max-width: 800px) {
     .contenedor-derecho {
@@ -807,3 +833,7 @@ footer > p{
     height: 3rem;
 }
 
+.starsReview{
+    height: 100%;
+    width: 100%;
+}

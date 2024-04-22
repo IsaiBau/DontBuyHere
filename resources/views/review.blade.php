@@ -39,12 +39,16 @@
                                         <input type="radio" id="star5" name="calificacion" value="5">
                                         <label for="star5"></label>
                                         <input type="radio" id="star4" name="calificacion" value="4">
+                                        <img for="star4">
                                         <label for="star4"></label>
                                         <input type="radio" id="star3" name="calificacion" value="3">
+                                        <img for="star3">
                                         <label for="star3"></label>
                                         <input type="radio" id="star2" name="calificacion" value="2">
+                                        <img for="star2">
                                         <label for="star2"></label>
                                         <input type="radio" id="star1" name="calificacion" value="1">
+                                        <img for="star1">
                                         <label for="star1"></label>
                                     </div>
                                     @error ('radio')
