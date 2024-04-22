@@ -439,12 +439,12 @@ form .form-input button {
 }
 #main .box-info li .review {
 	background: var(--light-blue);
-	color: var(--red-color);
+	color: var(--blue);
 }
 
 #main .box-info li .establecimiento {
-	background: var(--light-blue);
-	color: var(--blue);
+	background: var(--light-orange);
+	color: var(--red-color);
 }
 #main .box-info li .text h3 {
 	font-size: 24px;
