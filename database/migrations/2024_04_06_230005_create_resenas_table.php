@@ -17,23 +17,17 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_establecimiento');
             $table->unsignedBigInteger('id_user');
-<<<<<<< Updated upstream
 
-=======
             $table->unsignedBigInteger('id_tipo_establecimiento');
->>>>>>> Stashed changes
             $table->string('resena', 30);
             $table->string('direccion', 100);
             $table->string('calificacion', 30);
             $table->string('fecha', 50);
-<<<<<<< Updated upstream
             $table->string('estado', 50);
     
             //$table->unsignedBigInteger('id_tipo_establecimiento');
             $table->string('direccion', 100);
 
-=======
->>>>>>> Stashed changes
             $table->timestamps();
             $table->foreign('id_establecimiento')
             ->references('id') 
@@ -45,14 +39,11 @@ return new class extends Migration
             ->on('users')
             ->onDelete("cascade")
             ->onUpdate("cascade"); 
-<<<<<<< Updated upstream
-=======
             $table->foreign('id_tipo_establecimiento')
             ->references('id') 
             ->on('tipo_establecimientos')
             ->onDelete("cascade")
             ->onUpdate("cascade"); 
->>>>>>> Stashed changes
             
         });
     }

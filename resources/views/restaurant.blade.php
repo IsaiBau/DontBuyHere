@@ -14,7 +14,7 @@
         <br>
             <div class="container">
                 <div class="row">
-                    @foreach($establecimientos as $establecimiento)
+                    @foreach($establecimientos->where('id_tipo_establecimiento', 2) as $establecimiento)
                     <div class="col">
                         <div class="card mb-3">
                             <form action="/vistaReview" method="POST">
