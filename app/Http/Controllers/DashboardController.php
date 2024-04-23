@@ -92,21 +92,6 @@ class DashboardController extends Controller
             return redirect()->back()->with('error', 'Error al actualizar el establecimiento: ' . $e->getMessage());
         }
     }
-    /*
-        $establecimiento->update([
-            'name' => $request->name,
-            'direccion' => $request->direccion,
-            'url_imagen' => $request->url_imagen,
-        ]);
-        if ($request->hasFile('FOTO')) {
-            $rutaImagen = $request->file('FOTO')->store('img');
-            $establecimiento->url_imagen = $rutaImagen;
-        }
-
-        $establecimiento->save();
-    
-        return redirect('/establecimiento')->with('success-update', 'Edición completa');
-    }*/
 
     public function destroyEs(Establecimiento $establecimiento){
         $establecimiento->delete();

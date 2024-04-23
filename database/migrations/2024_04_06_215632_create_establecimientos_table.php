@@ -21,7 +21,10 @@ return new class extends Migration
             $table->string('descripcion', 255);
             $table->string('url_imagen', 255);
             $table->decimal('calificacion', 5, 2)->nullable();
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
             $table->timestamps();
             $table->foreign('id_tipo_establecimiento')
             ->references('id') 

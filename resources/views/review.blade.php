@@ -1,5 +1,4 @@
 @extends('plantillaGeneral')
-<title>Reseña</title>
 @section('contenido')
 <body>
 {{-- Primer formulario --}}
@@ -12,24 +11,35 @@
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="d-flex justify-content-center align-items-center mt-4" style="width: 60rem">
-                        <form action="#" class="row" style="width: 100%">
+                        <form action="{{ route('guardar.resena') }}" method="POST" class="row" style="width: 100%">
+                            @csrf
                             <div class="col">
                                 <label for="localName" class="text-black montserrat-medium label-font">Nombre del establecimiento</label>
                                 <div id="searchBoxContainer">
-                                    <input type='text' id='searchBox' class="border-dark border-1 form-control mb-3 form"/>
+                                    <input type='text' id='autocomplete' class="border-dark border-1 form-control mb-3 form"/>
+                                </div>
+                                <label for="localName" class="text-black montserrat-medium label-font">Dirección</label>
+                                <div id="searchBoxContainer">
+                                    <input type='text' id='direccion' name="address" class="border-dark border-1 form-control mb-3 form" placeholder="Calle, Código Postal, Villahermosa, Tab."/>
                                 </div>
                                 <label for="localType" class="text-black montserrat-medium label-font mt-3">Tipo de local</label>
-                                <select name="localType" class="form-select mb-3 border-dark border-1 form">
-                                    <option selected>Tienda, Restaurante, Fonda...</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select name="localTypeAdd" class="form-select mb-3 border-dark border-1 form">
+                                    <option value="" selected>Selecciona un tipo de establecimiento</option>
+                                    @foreach($tiposEstablecimientos as $tipoEstablecimiento)
+                                        <option value="{{ $tipoEstablecimiento->id }}">{{ $tipoEstablecimiento->name }}</option>
+                                    @endforeach
                                 </select>
+                                @error ('localTypeAdd')
+                                    {{$message}}
+                                @enderror
+                                <br>
                                 <label for="review" class="text-black montserrat-medium label-font">Reseña</label>
                                 <textarea name="review" class="form-control border-dark border-1 mb-3" style="max-width: 27rem; height: 9rem;" placeholder="Escriba aqui su experiencia..." id="floatingTextarea"></textarea>
+                                @error ('review')
+                                    {{$message}}
+                                @enderror
                             </div>
-                                <div class="col">
-                                    <div id="myMap" class="myMap form" style="height:11rem;"></div>  
+                                <div class="col">  
                                     @error ('address')
                                         {{$message}}
                                     @enderror
@@ -50,7 +60,7 @@
                                     @error ('radio')
                                         {{$message}}
                                     @enderror
-                                    <br><br><br><br><br><br><br>
+                                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                                     <input type="text" name="user_id" value="{{ auth()->user()->id }}" class="form-control mb-3" hidden>
                                     @error ('user_id')
                                         {{$message}}
@@ -136,11 +146,6 @@
                                         @endforeach
                                     </select>
                                     @error ('localTypeAdd')
-                                        {{$message}}
-                                    @enderror
-                                    <label for="review" class="text-black montserrat-medium label-font">Reseña</label>
-                                    <textarea name="review" class="form-control border-dark border-1 mb-3" style="max-width: 27rem; height: 9rem;" placeholder="Escriba aqui su experiencia..." id="floatingTextarea"></textarea>
-                                    @error ('review')
                                         {{$message}}
                                     @enderror
                                 </div>

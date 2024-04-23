@@ -20,22 +20,21 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <label for="direccion" class="text-black montserrat-medium label-font">Dirección</label>
-                                <input type="text" name="direccion" class="form-control mb-3" value="{{ $establecimiento->direccion }}">
-                                
-                                <label for="url_imagen" class="text-black montserrat-medium label-font">Foto</label><br>
-                                <input type="file" name="url_imagen" class="form-control mb-3">
-                                
-                                @if($establecimiento->url_imagen)
-                                    <img src="{{ asset($establecimiento->url_imagen) }}" alt="Foto del establecimiento" height="100px" class="mb-3">
-                                @endif<br>
-
-                                <button type="submit" class="btn btn-primary">Actualizar</button>
+                                <label for="addres" class="text-black montserrat-medium label-font">Dirección</label><br>
+                                    <input type="text" name="addres" placeholder="Calle, Código Postal, Villahermosa, Tab." class="border-dark border-1 form-control mb-3 form" value="{{$establecimiento->direccion}}">
+                                <label for="buttonPicture" class="text-black montserrat-medium label-font">Foto</label><br>
+                                <div class="d-flex position-relative" style="width: 95%">
+                                    <img src="{{ asset($establecimiento->url_imagen) }}" alt="Foto" height="200px" >
+                                    <input class="inputFile" type="file" name="FOTO" placeholder="foto" size="50" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                    <div class="position-absolute bottom-0 end-0">
+                                        <button type="submit" class="mt-4 form-control bg-black text-white ml-2" style="width: 10rem">Actualizar</button>                                                                                 
+                                    </div>
+                                </div>
                             </div>
                         </form>
-                    </div>
+                    </div>                    
                 </div>
             </div>
-        </div>
-    </div>    
+        </div>        
+    </div>
 @endsection
