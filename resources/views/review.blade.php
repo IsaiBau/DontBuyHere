@@ -16,10 +16,14 @@
                             <div class="col">
                                 <label for="localName" class="text-black montserrat-medium label-font">Nombre del establecimiento</label>
                                 <div id="searchBoxContainer">
-                                    <input type='text' id='searchBox' class="border-dark border-1 form-control mb-3 form"/>
+                                    <input type='text' id='autocomplete' class="border-dark border-1 form-control mb-3 form"/>
+                                </div>
+                                <label for="localName" class="text-black montserrat-medium label-font">Dirección</label>
+                                <div id="searchBoxContainer">
+                                    <input type='text' id='direccion' class="border-dark border-1 form-control mb-3 form" placeholder="Calle, Código Postal, Villahermosa, Tab."/>
                                 </div>
                                 <label for="localType" class="text-black montserrat-medium label-font mt-3">Tipo de local</label>
-                                <select name="localType" class="form-select mb-3 border-dark border-1 form">
+                                <select name="localType" class="form-select mb-3 border-dark border-1 form" id="tipo_local">
                                     <option selected>Tienda, Restaurante, Fonda...</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
@@ -28,8 +32,7 @@
                                 <label for="review" class="text-black montserrat-medium label-font">Reseña</label>
                                 <textarea name="review" class="form-control border-dark border-1 mb-3" style="max-width: 27rem; height: 9rem;" placeholder="Escriba aqui su experiencia..." id="floatingTextarea"></textarea>
                             </div>
-                                <div class="col">
-                                    <div id="myMap" class="myMap form" style="height:11rem;"></div>  
+                                <div class="col">  
                                     @error ('address')
                                         {{$message}}
                                     @enderror
