@@ -93,7 +93,7 @@
     </head>
     <body>
     <header id="header">
-        <nav class="navbar1 container-fluid bg-transparent px-5 pt-4">
+        <nav class="navbar1 container-fluid bg-transparent px-5 p-4">
             <div id="branding">
                 <form action="" id="content_search">
                     <button type="submit" id="btnSearch" name="btnSearch"><span class="icon-search"></span></button>
