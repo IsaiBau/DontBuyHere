@@ -11,6 +11,7 @@ class RestaurantController extends Controller
 {
     public function index()
     {
+<<<<<<< Updated upstream
         // Obtener todos los establecimientos
         $establecimientos = Establecimiento::all();
         
@@ -23,11 +24,23 @@ class RestaurantController extends Controller
             $calificacionPromedio = $resenas->avg('calificacion');
             
             // Actualizar la calificación del establecimiento con la calificación promedio
+=======
+        $establecimientos = Establecimiento::all();
+        
+        foreach ($establecimientos as $establecimiento) {
+            $resenas = Resena::where('id_establecimiento', $establecimiento->id)->get();
+            
+            $calificacionPromedio = $resenas->avg('calificacion');
+            
+>>>>>>> Stashed changes
             $establecimiento->calificacion = (int) $calificacionPromedio;
             $establecimiento->save();
         }
         
+<<<<<<< Updated upstream
         // Devolver la vista con los establecimientos actualizados
+=======
+>>>>>>> Stashed changes
         return view('restaurant', compact('establecimientos'));
     }
 }

@@ -37,7 +37,10 @@ class reviewController extends Controller
         $establecimiento->name = $request->input('localNameAdd');
         $establecimiento->id_tipo_establecimiento = $request->input('localTypeAdd');
         $establecimiento->direccion = $request->input('address');
+<<<<<<< Updated upstream
         $establecimiento->descripcion = $request->input('review');
+=======
+>>>>>>> Stashed changes
 
         if ($request->hasFile('photo')) {
             $image = $request->file('photo');

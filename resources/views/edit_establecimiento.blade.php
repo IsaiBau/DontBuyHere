@@ -1,6 +1,7 @@
 @extends('plantillaGeneral')
 @section('contenido')
     
+<<<<<<< Updated upstream
 <div class="container pt-5">
     <div class="card mb-3 p-2" style="max-width: 77.313rem; max-height: 35rem; overflow: auto;">
         <div class="card-body">
@@ -17,6 +18,8 @@
                             <input type="text" name="name" class="form-control mb-3" value="{{ $establecimiento->name }}">
                                                       
                             <label for="localType" class="text-black montserrat-medium label-font">Tipo de local</label>
+=======
+>>>>>>> Stashed changes
     <div class="container pt-5">
         <div class="card mb-3 p-2" style="max-width: 77.313rem; max-height: 35rem; overflow: auto;">
             <div class="card-body">
@@ -42,6 +45,7 @@
                                 </select>
                             </div>
                             <div class="col">
+<<<<<<< Updated upstream
                                 <label for="direccion" class="text-black montserrat-medium label-font">Dirección</label>
                                 <input type="text" name="direccion" class="form-control mb-3" value="{{ $establecimiento->direccion }}">
                                 
@@ -60,6 +64,8 @@
             </div>
         </div>
     </div>    
+=======
+>>>>>>> Stashed changes
                                 <label for="addres" class="text-black montserrat-medium label-font">Dirección</label><br>
                                     <input type="text" name="addres" placeholder="Calle, Código Postal, Villahermosa, Tab." class="border-dark border-1 form-control mb-3 form" value="{{$establecimiento->direccion}}">
                                 <label for="buttonPicture" class="text-black montserrat-medium label-font">Foto</label><br>
@@ -77,4 +83,9 @@
             </div>
         </div>        
     </div>
+<<<<<<< Updated upstream
+=======
+    
+    
+>>>>>>> Stashed changes
 @endsection

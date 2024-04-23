@@ -9,8 +9,11 @@ use App\Http\Controllers\VistaRController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\reviewController;
+<<<<<<< Updated upstream
 use App\Http\Controllers\ShopController;
 
+=======
+>>>>>>> Stashed changes
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,7 +50,10 @@ Route::post('/guardar-resena', [reviewController::class, 'guardarResena'])->name
 
 
 Route::get('/restaurant', [RestaurantController::class, 'index'])->name('restaurant.index');
+<<<<<<< Updated upstream
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
+=======
+>>>>>>> Stashed changes
 Route::post('/register', [RegistroController::class, 'store'])->name('registro');
 Route::post('/login', [LoginController::class, 'index'])->name('login.index');
 Route::post('/login', [LoginController::class, 'login'])->name('login.log');
@@ -72,6 +78,12 @@ Route::controller(DashboardController::class)->group(function(){
     Route::delete('/deleteRe/{resena}', 'destroyRe')->name('re.destroy');
 });
 
+<<<<<<< Updated upstream
 Route::get('vistaReview', [VistaRController::class, 'vista'])->name('vistaReview');
+=======
+Route::match(['get', 'post'], '/vistaReview', [VistaRController::class, 'vista'])->name('vistaReview');
+
+//Route::get('/login', [HomeController::class, 'index']);
+>>>>>>> Stashed changes
 
 //Route::get('/dashboard', 'index')->name('dashboard1') ->middleware('auth.admin')->name('admin.index');

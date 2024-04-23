@@ -59,6 +59,7 @@ class DashboardController extends Controller
     }
 
     public function updateEs(Request $request, Establecimiento $establecimiento){
+<<<<<<< Updated upstream
 
         try {
             
@@ -84,6 +85,8 @@ class DashboardController extends Controller
         }
     }
     
+=======
+>>>>>>> Stashed changes
         $establecimiento->update([
             'name' => $request->name,
             'direccion' => $request->direccion,
@@ -98,7 +101,14 @@ class DashboardController extends Controller
     
         return redirect('/establecimiento')->with('success-update', 'Edición completa');
     }
+<<<<<<< Updated upstream
 
+=======
+    
+    
+    
+    
+>>>>>>> Stashed changes
     public function destroyEs(Establecimiento $establecimiento){
         $establecimiento->delete();
         return redirect()->action([DashboardController::class, 'indexEs'])->with('success-delete', 'Establecimiento eliminado con éxito');
