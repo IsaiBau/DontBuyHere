@@ -1,6 +1,5 @@
 @extends('plantillaGeneral')
 @section('contenido')
-    
     <div class="container pt-5">
         <div class="card mb-3 p-2" style="max-width: 77.313rem; max-height: 35rem; overflow: auto;">
             <div class="card-body">
@@ -14,12 +13,7 @@
                             @method('PUT')
                             <div class="col">
                                 <label for="localType" class="text-black montserrat-medium label-font">Nombre del local</label>
-                                <select name="name" class="form-select mb-3 border-dark border-1 form" style="max-width: 27rem;">
-                                    <option value="{{$establecimiento->name}}" selected>{{$establecimiento->name}}</option>
-                                    <option value="1">Little Caesars</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>                                
+                                <input type="text" name="name" class="form-control mb-3" value="{{ $establecimiento->name }}">                        
                                 <label for="localType" class="text-black montserrat-medium label-font">Tipo de local</label>
                                 <select name="localType" class="form-select mb-3 border-dark border-1 form">
                                     <option value="{{$establecimiento->tipoEstablecimiento->id}}" selected>{{$establecimiento->tipoEstablecimiento->name}}</option>
@@ -43,6 +37,4 @@
             </div>
         </div>        
     </div>
-    
-    
 @endsection

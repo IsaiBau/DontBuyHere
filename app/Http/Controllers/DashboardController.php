@@ -18,8 +18,9 @@ class DashboardController extends Controller
     }
     function  indexEs() {
         $activeLink = 'establecimiento';
+        $establecimientos = Establecimiento::all();
         $establecimiento = Establecimiento::with('tipoEstablecimiento')->get();
-        return view('establecimiento', compact('activeLink'), ['es'=> $establecimiento]);
+        return view('establecimiento', compact('activeLink', 'establecimientos'), ['es'=> $establecimiento]);
     }
     function  indexRe() {
         $activeLink = 'reviews';
@@ -48,7 +49,15 @@ class DashboardController extends Controller
         ]);
         return redirect()->action([DashboardController::class, 'indexUsu'])->with('success-update', 'Edición completa');
     }
-
+    public function updateRe(Request $request, Resena $resena){
+        $resena->update([
+            'resena'=>$request->resena,
+            'calificacion'=>$request->calificacion,
+            'fecha'=>$request->fecha,
+            'estado'=>$request->estado,
+        ]);
+        return redirect()->action([DashboardController::class, 'indexRe'])->with('success-update', 'Edición completa');
+    }
     public function destroy(User $usuario){
         $usuario->delete();
         return redirect()->action([DashboardController::class, 'indexUsu'])->with('success-delete', 'Usuario eliminado con éxito');
@@ -59,42 +68,41 @@ class DashboardController extends Controller
     }
 
     public function updateEs(Request $request, Establecimiento $establecimiento){
-        $establecimiento->update([
-            'name' => $request->name,
-            'direccion' => $request->direccion,
-            'url_imagen' => $request->url_imagen,
-        ]);
-        if ($request->hasFile('FOTO')) {
-            $rutaImagen = $request->file('FOTO')->store('img');
-            $establecimiento->url_imagen = $rutaImagen;
-        }
 
-        $establecimiento->save();
+        try {
+            
+            $establecimiento->name = $request->name;
+            $establecimiento->direccion = $request->direccion;
+            $establecimiento->id_tipo_establecimiento = $request->localType;
     
-        return redirect('/establecimiento')->with('success-update', 'Edición completa');
+            
+        if ($request->hasFile('url_imagen')) {
+            $image = $request->file('url_imagen');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('img'), $imageName);
+            $establecimiento->url_imagen = 'img/' . $imageName;
+        }
+        
+            $establecimiento->save();
+    
+            return redirect()->route('establecimiento')->with('success', 'Establecimiento actualizado correctamente.');
+            
+        } catch (\Exception $e) {
+            
+            return redirect()->back()->with('error', 'Error al actualizar el establecimiento: ' . $e->getMessage());
+        }
     }
-    
-    
-    
-    
+
     public function destroyEs(Establecimiento $establecimiento){
         $establecimiento->delete();
         return redirect()->action([DashboardController::class, 'indexEs'])->with('success-delete', 'Establecimiento eliminado con éxito');
     }
     //CRUD RESEÑAS
     public function editRe(Resena $resena){
-        return view('usersEdit', compact('resena'));
+        return view('edit_revies', compact('resena'));
     }
 
-    public function updateRe(addUserRequests $request, Resena $usuario){
-        $usuario->update([
-            'name'=>$request->name,
-            'user'=>$request->user,
-            'email'=>$request->email,
-            'password'=>$request->password,
-        ]);
-        return redirect()->action([DashboardController::class, 'indexRe'])->with('success-update', 'Edición completa');
-    }
+
     public function destroyRe(Resena $resena){
         $resena->delete();
         return redirect()->action([DashboardController::class, 'indexRe'])->with('success-delete', 'Reseña eliminada con éxito');
