@@ -1,4 +1,4 @@
-@extends('plantillaAdmin'
+@extends('plantillaAdmin')
 
 @section('contenido')
 <div class="head-title">
