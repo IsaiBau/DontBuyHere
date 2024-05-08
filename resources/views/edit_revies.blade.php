@@ -1,4 +1,4 @@
-@extends('plantillaGeneral'
+@extends('plantillaGeneral')
 @section('contenido')
     <div class="container pt-5">
         <div class="card mb-3 p-2" style="max-width: 77.313rem; max-height: 35rem; overflow: auto;">
